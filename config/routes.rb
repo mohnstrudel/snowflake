@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     end
 
     resources :services
+    resources :masters
 
 
   end

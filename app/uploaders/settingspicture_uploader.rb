@@ -37,7 +37,7 @@ class SettingspictureUploader < CarrierWave::Uploader::Base
   # end
 
   version :first_picture_thumb do
-    process :resize_to_fill => [371, 250]
+    process :resize_to_fill => [371, 205]
   end
 
   version :second_picture_thumb do

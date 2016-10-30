@@ -41,8 +41,8 @@
           %p
             =@general_settings.upper_text
 
-          =image_tag @general_settings.first_image.first_picture_thumb.url
-          =image_tag @general_settings.second_image.second_picture_thumb.url
+          =image_tag @general_settings.first_image.first_picture_thumb.url, class: "img-responsive hair_cut"
+          =image_tag @general_settings.second_image.second_picture_thumb.url, class: "img-responsive saving_img"
           %p
             =@general_settings.lower_text
             Напишите нам 

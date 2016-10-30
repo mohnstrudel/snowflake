@@ -27,8 +27,8 @@ jQuery(document).ready ->
     # minimumInputLength: 3
   
   # Init Select for Patterns - Basic Multiple
-  $('.select-multiple-patterns').select2
-    placeholder: 'Выбрать доступные узоры для товара'
+  $('.select-masters-category').select2
+    placeholder: 'Выбрать категорию для мастера'
     allowClear: true
     # minimumInputLength: 3
   
