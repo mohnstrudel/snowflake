@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Let's use Figaro for storing variables
+gem 'figaro'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -55,6 +58,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'better_errors'
+
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
