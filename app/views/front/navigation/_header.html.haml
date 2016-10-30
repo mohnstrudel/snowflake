@@ -1,0 +1,170 @@
+%header.header_main.header_home
+  .ds_wrapper.wrapper_top
+    .container
+      .row
+        %span.toogle_span
+          Notification Bar
+        .notification_bar
+          .col-sm-9.col-lg-9.padd_l
+            .ds_top_notification
+              .br_notification_content
+                %i.fa.fa-mobile
+                .notification_text
+                  ="Позвоните нам для записи - #{@general_settings.phone}"
+                / 1103cf
+              .br_notification_content
+                %i.fa.fa-map-marker
+                .notification_text
+                  =@general_settings.address
+              .br_notification_content
+                %i.fa.fa-send
+                .notification_text
+                  =link_to "mailto:#{@general_settings.email}" do
+                    =@general_settings.email
+          .col-sm-3.col-lg-3.padd_r
+            .ds_social_notification
+              =link_to @general_settings.vk do
+                %i.fa.fa-vk
+              =link_to @general_settings.fb do
+                %i.fa.fa-facebook-official
+              =link_to @general_settings.instagram do
+                %i.fa.fa-instagram
+  / header top section
+  / header menu section start
+  .ds_wrapper.wrapper_nav
+    .container
+      .row
+        / navbar toggle start
+        .navbar-header.pull-right
+          %button.navbar_toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+            %i.fa.fa-list-ul
+        / navbar toggle end
+        .col-sm-2.col-lg-2.col-md-2.col-xs-5
+          .ds_logo_left
+            %a{:href => "index.html"}
+              %img{:alt => "", :src => "images/logo-img.png"}/
+        .col-sm-12.col-lg-8.col-md-8.col-xs-12.ds_navigation_menu
+          / navbar_collapse
+          .navbar_collapse
+            %nav
+              %ul.menu
+                %li.current_page_item
+                  %a{:href => "index.html"}
+                    Home
+                  %ul.sub-menu.dropdown-menu
+                    %li
+                      %a{:href => "HomeMinimal.html"}
+                        Home Minimal
+                    %li
+                      %a.active_sub{:href => "index.html"}
+                        Home version 1
+                    %li
+                      %a{:href => "Home2.html"}
+                        Home version 2
+                    %li
+                      %a{:href => "Home3.html"}
+                        Home version 3
+                    %li
+                      %a{:href => "Home-4.html"}
+                        Home version 4
+                    %li
+                      %a{:href => "full.html"}
+                        Home Full version
+                %li
+                  %a{:href => "Blog.html"}
+                    blog
+                  %ul.sub-menu.dropdown-menu
+                    %li
+                      %a{:href => "Blog.html"}
+                        Default Blog
+                    %li
+                      %a{:href => "Blog-three-column.html"}
+                        Blog 3 column Masonry
+                    %li
+                      %a{:href => "Blog-four-column.html"}
+                        Blog 4 column Masonry
+                %li
+                  %a{:href => "gallery.html"}
+                    gallery
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "gallery.html"}
+                        default gallery
+                    %li
+                      %a{:href => "full-gallery.html"}
+                        full width gallery
+                    %li
+                      %a{:href => "lightbox-gallery.html"}
+                        gallery with lightbox
+                    %li
+                      %a{:href => "mini-gallery.html"}
+                        gallery-mini gallery
+                %li
+                  %a{:href => "stylist.html"}
+                    stylist
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "stylist.html"}
+                        Stylists Default
+                    %li
+                      %a{:href => "stylist-circle.html"}
+                        Stylists Circled
+                %li
+                  %a{:href => "prices-simple.html"}
+                    prices
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "prices-simple.html"}
+                        Prices – Simple
+                    %li
+                      %a{:href => "prices-tabs.html"}
+                        Prices – Tabs
+                %li
+                  %a{:href => "accordion-toggle.html"}
+                    pages
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "accordion-toggle.html"}
+                        %i.fa.fa-list-ul>
+                        accordion &amp; toggles
+                    %li
+                      %a{:href => "shortcodes-columns.html"}
+                        %i.fa.fa-th-list>
+                        columns
+                    %li
+                      %a{:href => "shortcodes-buttons.html"}
+                        %i.fa.fa-minus-square>
+                        buttons
+                    %li
+                      %a{:href => "count-blocks.html"}
+                        %i.fa.fa-clock-o>
+                        count blocks
+                    %li
+                      %a{:href => "shortcodes-google-maps.html"}
+                        %i.fa.fa-map-marker>
+                        google maps
+                    %li
+                      %a{:href => "shortcodes-iconography.html"}
+                        %i.fa.fa-bug>
+                        iconography
+                    %li
+                      %a{:href => "premium-rotating-circles.html"}
+                        %i.fa.fa-dot-circle-o>
+                        Premium Rotating Circles
+                    %li
+                      %a{:href => "Pricing-tables.html"}
+                        %i.fa.fa-columns>
+                        Pricing Tables
+                %li
+                  %a{:href => "contact.html"}
+                    contact
+                %li
+                  %a{:href => "#"}
+                    buy
+          / navbar_collapse
+        #appointment_btn.pull-right.hidden-xs
+          .appointment_btn
+            %a{:href => "booking.html"}
+              Book an appointment
+  / header menu section end
+/ header menu section end

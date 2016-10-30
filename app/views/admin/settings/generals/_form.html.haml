@@ -1,0 +1,191 @@
+-@general.errors.full_messages.each do |message|
+  =content_tag(:div, message, class: "alert alert-danger")
+
+=form_for [:admin, :settings, @general] do |f|
+
+  / begin: .tray-center
+  .mw1000.center-block
+    / Store Owner Details
+    .panel.panel-warning.panel-border.top.mt20.mb35
+      .panel-heading
+        %span.panel-title Общие настройки сайта
+      .panel-body.bg-light.dark
+        .admin-form
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "account-name"} Название сайта:
+            .col-md-9
+              %label.field.prepend-icon{:for => "account-name"}
+                =f.text_field :name, id: "account-name", class: "gui-input", placeholder: "Название сайта"
+                %label.field-icon{:for => "account-name"}
+                  %i.fa.fa-info
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "account-email"} Электронная почта:
+            .col-md-9
+              %label.field.prepend-icon{:for => "account-email"}
+                =f.text_field :email, id: "account-email", class: "gui-input", placeholder: "Электронная почта"
+                %label.field-icon{:for => "account-email"}
+                  %i.fa.fa-envelope-o
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "account-phone"} Телефон:
+            .col-md-9
+              %label.field.prepend-icon{:for => "account-phone"}
+                =f.text_field :phone, id: "account-phone", class: "gui-input", placeholder: "8 888-888-8888"
+                %label.field-icon{:for => "account-phone"}
+                  %i.fa.fa-phone
+                %i.arrow.double
+          %hr.short.alt/
+          .section
+            %label.field.prepend-icon{:for => "lastaddr"}
+              =f.text_area :address, id: "lastaddr", class: "gui-input", placeholder: "Адрес салона"
+              %label.field-icon{:for => "lastaddr"}
+                %i.fa.fa-map-marker
+            / end section
+    / Store Information
+    .panel.panel-info.panel-border.top.mb35
+      .panel-heading
+        %span.panel-title Соц. сети
+      .panel-body.bg-light.dark
+        .admin-form
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "business-name"} Фейсбук:
+            .col-md-9
+              %label.field.prepend-icon{:for => "business-fb"}
+                =f.text_field :fb, id: "business-fb", class: "gui-input", placeholder: "http://facebook.com/something"
+                %label.field-icon{:for => "business-fb"}
+                  %i.fa.fa-facebook-official
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "business-phone"} вКонтакте:
+            .col-md-9
+              %label.field.prepend-icon{:for => "business-vk"}
+                =f.text_field :vk, id: "business-vk", class: "gui-input", placeholder: "http://vk.com/something"
+                %label.field-icon{:for => "business-vk"}
+                  %i.fa.fa-vk
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "business-phone"} Инстаграм:
+            .col-md-9
+              %label.field.prepend-icon{:for => "business-instagram"}
+                =f.text_field :instagram, id: "business-instagram", class: "gui-input", placeholder: "http://instagram.com/something"
+                %label.field-icon{:for => "business-instagram"}
+                  %i.fa.fa-instagram
+          
+          / end section row
+    / Store Settings
+    .panel.panel-primary.panel-border.top.mb35
+      .panel-heading
+        %span.panel-title Рабочие часы
+      .panel-body.bg-light.dark
+        .admin-form
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "names"} Понедельник:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-monday"}
+                =f.text_field :monday, id: "store-mondya", class: "gui-input", placeholder: "с 9:00 до 21:00"
+                %label.field-icon{:for => "store-monday"}
+                  %i.fa.fa-calendar
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "store-currency"} Вторник:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-thuesday"}
+                =f.text_field :thuesday, id: "store-thuesday", class: "gui-input", placeholder: "с 9:00 до 21:00"
+                %label.field-icon{:for => "store-thuesday"}
+                  %i.fa.fa-calendar
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "store-units"} Среда:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-wednesday"}
+                =f.text_field :wednesday, id: "store-wednesday", class: "gui-input", placeholder: "с 9:00 до 21:00"
+                %label.field-icon{:for => "store-wednesday"}
+                  %i.fa.fa-calendar
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "store-weight"} Четверг:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-thursday"}
+                =f.text_field :thursday, id: "store-thursday", class: "gui-input", placeholder: "с 9:00 до 21:00"
+                %label.field-icon{:for => "store-thursday"}
+                  %i.fa.fa-calendar
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "store-desc"} Пятница:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-friday"}
+                =f.text_field :friday, id: "store-friday", class: "gui-input", placeholder: "с 9:00 до 21:00"
+                %label.field-icon{:for => "store-friday"}
+                  %i.fa.fa-calendar
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "store-desc"} Суббота:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-saturday"}
+                =f.text_field :saturday, id: "store-saturday", class: "gui-input", placeholder: "выходной"
+                %label.field-icon{:for => "store-saturday"}
+                  %i.fa.fa-calendar
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "store-desc"} Воскресенье:
+            .col-md-9
+              %label.field.prepend-icon{:for => "store-sunday"}
+                =f.text_field :sunday, id: "store-sunday", class: "gui-input", placeholder: "выходной"
+                %label.field-icon{:for => "store-sunday"}
+                  %i.fa.fa-calendar
+    / Store Policies
+    .panel.panel-success.panel-border.top.mb35
+      .panel-heading
+        %span.panel-title Блок "О нас"
+      .panel-body.bg-light.dark
+        .admin-form
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "upper_text"} Верхний текст
+            .col-md-9
+              %label.field.prepend-icon
+                =f.text_area :upper_text, id: "upper_text", class: "gui-textarea", placeholder: "Верхний текст"
+                %label.field-icon{:for => "upper_text"}
+                  %i.fa.fa-edit
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "lower_text"} Нижний текст
+            .col-md-9
+              %label.field.prepend-icon
+                =f.text_area :lower_text, id: "lower_text", class: "gui-textarea", placeholder: "Нижний текст"
+                %label.field-icon{:for => "lower_text"}
+                  %i.fa.fa-edit
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "privacy-policy"} Первое изображение
+            .col-md-9
+              .section
+                %label.field.prepend-icon.file
+                  %span.button Выбрать картинку
+                  =f.file_field :first_image, id: "file1", class: "gui-file", onchange: "document.getElementById('uploader1').value = this.value;"
+                  %input#uploader1.gui-input{:placeholder => @general.first_image, :type => "text"}/
+                  %label.field-icon
+                    %i.fa.fa-upload
+
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "privacy-policy"} Второе изображение
+            .col-md-9
+              .section
+                %label.field.prepend-icon.file
+                  %span.button Выбрать картинку
+                  =f.file_field :second_image, id: "file2", class: "gui-file", onchange: "document.getElementById('uploader2').value = this.value;"
+                  %input#uploader2.gui-input{:placeholder => @general.second_image, :type => "text"}/
+                  %label.field-icon
+                    %i.fa.fa-upload
+
+
+    / Request Google Analytics
+    .panel.panel-system.panel-border.top.mb35
+      .panel-heading
+        %span.panel-title Google Analytics
+      .panel-body.bg-light.dark
+        .admin-form
+          %h5.text-muted.fw400.mb10
+            Google Analytics account
+            %small (how do I set this up?)
+          .section.mbn
+            %label.field.prepend-icon
+              %textarea#google-insert.gui-textarea{:name => "google-insert", :placeholder => "Paste your code from Google here"}
+              %label.field-icon{:for => "google-insert"}
+                %i.fa.fa-google
+    %hr.short.alt
+      .section.row.mbn
+        .col-sm-8
+        .col-sm-4
+          %p.text-right
+            =f.submit "Сохранить", class: "btn btn-primary"
+          / end section
+  / end: .tray-center

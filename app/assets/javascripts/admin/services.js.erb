@@ -1,0 +1,14 @@
+jQuery(function() {
+  var subcat;
+  subcat = $('#subcategory-select').html();
+  return $('#category-select').change(function() {
+    var cat, options;
+    cat = jQuery('#category-select').children('option').filter(':selected').text();
+    options = $(subcat).filter("optgroup[label='" + cat + "']").html();
+    if (options) {
+      return $('#subcategory-select').html(options);
+    } else {
+      return $('#subcategory-select').empty();
+    }
+  });
+});

@@ -1,0 +1,26 @@
+.tray.tray-center
+	/ create new order panel
+	.panel.mb25.mt5
+		.panel-heading
+			%span.panel-title.hidden-xs Настройки
+			%ul.nav.panel-tabs-border.panel-tabs
+				%li.active
+					%a{"data-toggle" => "tab", :href => "#tab1_1"} Категории
+				%li
+					%a{"data-toggle" => "tab", :href => "#tab1_2"} Подкатегории
+				%li
+					%a{"data-toggle" => "tab", :href => "#tab1_3"} Общие
+		.panel-body.p25.pb5
+			.tab-content.pn.br-n.admin-form
+				#tab1_1.tab-pane.active
+					.section.row
+						=render partial: 'admin/shared/list_items', locals: {name: 'категория', current_objects: @categories, single: "category", additional_namespace: "settings_"}
+				#tab1_2.tab-pane
+					.section.row
+						=render partial: 'admin/shared/list_items', locals: {name: 'подкатегория', current_objects: @subcategories, single: "subcategory", additional_namespace: "settings_"}
+					/ end section row section
+				#tab1_3.tab-pane
+					.section.row
+						=render partial: 'admin/shared/list_items', locals: {name: 'общая', current_objects: @general, single: "general", additional_namespace: "settings_"}
+					/ end section row section
+					

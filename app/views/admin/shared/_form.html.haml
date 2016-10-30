@@ -1,0 +1,115 @@
+=form_for [:admin, :settings, current_objects] do |f|
+  .panel.mb25.mt5
+    .panel-heading
+      %span.panel-title.hidden-xs Добавить новую сущность
+      %ul.nav.panel-tabs-border.panel-tabs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#tab1_1"} Описание сущности
+    .panel-body.p20.pb10
+      .tab-content.pn.br-n.admin-form
+        .section.row.mbn
+          -if current_objects.respond_to?(:picture)
+
+            .col-md-4
+              .fileupload.fileupload-new.admin-form{"data-provides" => "fileupload"}
+                .fileupload-preview.thumbnail.mb20
+                  -unless current_objects.picture.nil?
+                    =image_tag current_objects.picture
+                  -else
+                    %img{:alt => "holder", "data-src" => "holder.js/100%x140"}
+                .row
+                  .col-xs-7.pr5
+                    %input#name2.text-center.event-name.gui-input.br-light.bg-light{:name => "name2", :placeholder => "Img Keywords", :type => "text"}
+                      %label.field-icon{:for => "name2"}
+                  .col-xs-5
+                    %span.button.btn-system.btn-file.btn-block
+                      %span.fileupload-new Select
+                      %span.fileupload-exists Change
+                      =f.file_field :picture, id: 'fileupload', type: :file
+                      / %input{:type => "file", name: 'picture'}
+          .col-md-8.pl15
+            .section.mb10
+              %label.field.prepend-icon{:for => "name2"}
+                =f.text_field :name, id: "price", class: "event-name gui-input br-light light", placeholder: 'Название сущности'
+                %label.field-icon{:for => "name2"}
+                  %i.fa.fa-tag
+            -if current_objects.respond_to?(:category_id)
+              .section.mb10
+                %label.field.prepend-icon
+                  =f.collection_select(:category_id, Category.all, :id, :name, {include_blank: false, :include_hidden => false}, { class: 'select2-multiple form-control select-info select-category-id', :multiple => false})
+            -if current_objects.respond_to?(:description)
+              .section.mb10
+                %label.field.prepend-icon
+                  =f.text_area :description, id: "comment", class: "gui-textarea br-light bg-light", placeholder: 'Описание сущности', style: "height: 160px;"
+                  %label.field-icon{:for => "comment"}
+                    %i.fa.fa-comments
+            -if current_objects.respond_to?(:price)
+              .section.mb10
+                %label.field.prepend-icon
+                  =f.number_field :price, id: "price", class: "event-name gui-input br-light light", placeholder: 'Стоимость'
+                  %label.field-icon{:for => "comment"}
+                    %i.fa.fa-comments
+                  %span.input-footer.hidden
+                    %strong> Hint:
+                    Don't be negative or off topic! just be awesome...
+            -if current_objects.respond_to?(:hex)
+              .section.mb10
+                %label.field.prepend-icon
+                  =f.text_field :hex, id: "hex", class: "event-name gui-input br-light light", placeholder: 'Hex-значение цвета'
+                  %label.field-icon{:for => "comment"}
+                    %i.fa.fa-paint-brush
+
+        / end section row section
+        .section.row
+          -if current_objects.respond_to?(:calories)
+            .col-md-4
+              %label.field.prepend-icon{:for => "product-price"}
+                =f.number_field :calories, id: "product-price", class: "gui-input", placeholder: "Кол-во калорий"
+                %label.field-icon{:for => "product-price"}
+                  %i.fa.fa-heart-o
+          / end section
+          -if current_objects.respond_to?(:fat)
+            .col-md-4
+              %label.field.prepend-icon{:for => "product-vendor"}
+                =f.number_field :fat, id: "product-vendor", class: "gui-input", placeholder: 'Жиры'
+                %label.field-icon{:for => "product-vendor"}
+                  %i.fa.fa-heart-o
+            / end section
+          -if current_objects.respond_to?(:carbohydrates)
+            .col-md-4
+              %label.field.prepend-icon{:for => "product-sku"}
+                =f.number_field :carbohydrates, id: "product-sku", class: "gui-input", placeholder: "Углеводы"
+                %label.field-icon{:for => "product-sku"}
+                  %i.fa.fa-heart-o
+            / end section
+        / end section row section
+        %hr.short.alt
+          .section.row.mbn
+            .col-sm-8
+              %label.field.option.mt10
+                %input{:checked => "", :name => "info", :type => "checkbox"}
+                  %span.checkbox>
+                  Save Customer
+                  %em.small-text.text-muted - A Random Unique ID will be generated
+            .col-sm-4
+              %p.text-right
+                =f.submit "Сохранить", class: "btn btn-primary"
+          / end section
+  -if current_objects.respond_to?(:image)
+    .panel
+      .panel-heading
+        %span.panel-title Загруженные фотографии рецепта
+        .widget-menu.pull-right
+          %code.mr10.bg-light.dark.p3.ph5 фото можно удалить
+      .panel-body
+        =f.fields_for :pictures do |builder|
+          =image_tag builder.object.image.mini_thumb.url, class: "img-responsive thumbnail mr25 uzhin_doma_mini_thumb"
+          =builder.label :_destroy, 'Удалить фотографию?'
+          =builder.check_box :_destroy
+          / -@recipe.pictures.each do |picture|
+          / =image_tag picture.image.mini_thumb.url, class: "img-responsive thumbnail mr25 uzhin_doma_mini_thumb"
+          
+          / %img.img-responsive.thumbnail.mr25{:src => "assets/img/stock/1.jpg"}
+          / end section
+  / end: .tray-center
+  / End: Content

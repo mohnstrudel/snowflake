@@ -1,0 +1,55 @@
+/ section_accordian
+.ds_wrapper.section_accordian
+  .container
+    .row
+      / accordion start
+      .col-sm-6.col-lg-6.accordian_left
+        %h2.block_title
+          НАШИ УСЛУГИ
+        .bs-example
+          #accordion.panel-group
+            -@subcategories.each_with_index do |subcat, index|
+              .panel.panel_default
+                .panel-heading
+                  %h4.panel-title
+                    =link_to "#collapse#{index}", data: {parent: "#accordion", toggle: "collapse"} do
+                      =subcat.name.mb_chars.upcase
+                      %i.indicator.glyphicon.glyphicon-chevron-down
+                =content_tag(:div, class: "panel-collapse collapse", id: "collapse#{index}") do
+                  / panel body start
+                  .panel-body.panel_body
+                    %a{:href => "booking.html", :target => "_blank", :title => "Make Appointment online"}
+                      ЗАПИСАТЬСЯ НА УСЛУГУ
+                    |
+                    %a{:href => "#stylists", :title => "see our stylists"}
+                      ПРОСМОТРЕТЬ НАШИХ МАСТЕРОВ
+                    %p.services_hide
+                      Цены, услуги и предложения являются ознакомительно офертой и могут отличаться в салоне от тех, которые представлены на сайте. Для полной гарантции рекомендуем вам звонить по телефону: 12132
+                    
+                    -subcat.services.each do |service|
+                      %h4.services-hide
+                        =service.title
+                        %span.Doller_c
+                          ="#{service.price} руб."
+                      .services-hide
+                        =service.description
+      / accordion end
+      .col-sm-6.col-lg-6
+        %h2.block_title
+          О НАС
+        .right_side_mdl
+          %p
+            =@general_settings.upper_text
+
+          =image_tag @general_settings.first_image.first_picture_thumb.url
+          =image_tag @general_settings.second_image.second_picture_thumb.url
+          %p
+            =@general_settings.lower_text
+            Напишите нам 
+            %span.info
+              =link_to "mailto:#{@general_settings.email}" do
+                =@general_settings.email
+            или звоните нам:
+            %strong
+              ="#{@general_settings.phone}."
+    / section_accordian end

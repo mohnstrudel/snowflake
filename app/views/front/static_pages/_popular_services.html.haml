@@ -1,0 +1,28 @@
+.ds_wrapper.wrapper_middle
+  .container
+    .row
+      / left_side
+      .col-sm-6.col-lg-6.left_beard_gallery
+        %h2.block_title
+          ="популярные услуги".upcase
+        %ul.gallery.clearfix
+          -@services.each do |service|
+            %li
+              =link_to service.pictures.first.image.url, title: service.title, data: { gal: "prettyPhoto[gallery1]"} do
+                =image_tag service.pictures.first.image.thumb_124.url
+          / left_side end
+      / right_side start
+      .col-sm-6.col-lg-6
+        .prices_section
+          %h2.block_title
+            ПОСМОТРИТЕ НА ЭТИ ЦЕНЫ
+          %ul.price_ul
+            -@cheapest_services.each do |cheap_service|
+              %li.price_list
+                .price_title
+                  =cheap_service.title
+                .price_right
+                  ="От #{cheap_service.price} руб."
+
+      / right_side end
+/ gallery section end

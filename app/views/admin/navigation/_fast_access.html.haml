@@ -1,0 +1,24 @@
+/ Start: Topbar-Dropdown
+#topbar-dropmenu.alt.topbar-menu-open{style: "display: block;"}
+  .topbar-menu.row
+    .col-xs-4.col-sm-2
+      =link_to '#', class: "metro-tile bg-primary light" do
+        %span.glyphicon.glyphicon-book.text-muted
+        %span.metro-title Товары
+    .col-xs-4.col-sm-2
+      =link_to '#', class: "metro-tile bg-success light" do
+        %span.glyphicon.glyphicon-user.text-muted
+        %span.metro-title Клиенты
+    .col-xs-4.col-sm-2
+      =link_to admin_services_path, class: "metro-tile bg-system light" do
+        %span.glyphicon.glyphicon-tag.text-muted
+        %span.metro-title Услуги
+    .col-xs-4.col-sm-2
+      =link_to admin_settings_path, class: "metro-tile bg-warning light", method: :get do
+        %span.fa.fa-gears.text-muted
+        %span.metro-title Настройки
+    / .col-xs-4.col-sm-2
+    /   %a.metro-tile.bg-alert.light{:href => "#"}
+    /     %span.glyphicon.glyphicon-picture.text-muted
+    /     %span.metro-title Pictures
+    / End: Topbar-Dropdown

@@ -1,0 +1,13 @@
+!!!
+%html
+%head
+  %title As-Studio - Студия Снежаны Черновой
+  = stylesheet_link_tag    'front', media: 'all', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+  =render 'front/navigation/header'
+  =yield
+  =render 'front/navigation/footer'
+
+= javascript_include_tag 'front', 'data-turbolinks-track' => true
