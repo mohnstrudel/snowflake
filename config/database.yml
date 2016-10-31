@@ -83,3 +83,4 @@ production:
   database: snowflake_production
   username: snowflake
   password: initpassword
+  host: localhost
