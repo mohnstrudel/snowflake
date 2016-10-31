@@ -82,4 +82,4 @@ production:
   <<: *default
   database: snowflake_production
   username: snowflake
-  password: <%= ENV['SNOWFLAKE_DATABASE_PASSWORD'] %>
+  password: initpassword
