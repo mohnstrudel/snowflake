@@ -82,5 +82,5 @@ production:
   <<: *default
   database: snowflake_production
   username: snowflake
-  password: initpassword
+  password: Figaro.snowflake_database_password
   host: localhost
