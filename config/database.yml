@@ -82,5 +82,5 @@ production:
   <<: *default
   database: snowflake_production
   username: snowflake
-  password: <%= Figaro.env.snowflake_database_password %>
+  password: <%= ENV["SNOWFLAKE_DATABASE_PASSWORD"] %>
   host: localhost
