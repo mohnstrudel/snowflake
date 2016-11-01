@@ -41,130 +41,40 @@
         / navbar toggle end
         .col-sm-2.col-lg-2.col-md-2.col-xs-5
           .ds_logo_left
-            %a{:href => "index.html"}
-              %img{:alt => "", :src => "images/logo-img.png"}/
+            =link_to root_path do
+              =image_tag 'static_images/logo_small_90.png'
         .col-sm-12.col-lg-8.col-md-8.col-xs-12.ds_navigation_menu
           / navbar_collapse
           .navbar_collapse
             %nav
               %ul.menu
                 %li.current_page_item
-                  %a{:href => "index.html"}
-                    Home
-                  %ul.sub-menu.dropdown-menu
-                    %li
-                      %a{:href => "HomeMinimal.html"}
-                        Home Minimal
-                    %li
-                      %a.active_sub{:href => "index.html"}
-                        Home version 1
-                    %li
-                      %a{:href => "Home2.html"}
-                        Home version 2
-                    %li
-                      %a{:href => "Home3.html"}
-                        Home version 3
-                    %li
-                      %a{:href => "Home-4.html"}
-                        Home version 4
-                    %li
-                      %a{:href => "full.html"}
-                        Home Full version
+                  =link_to 'Главная', root_path 
                 %li
-                  %a{:href => "Blog.html"}
-                    blog
-                  %ul.sub-menu.dropdown-menu
-                    %li
-                      %a{:href => "Blog.html"}
-                        Default Blog
-                    %li
-                      %a{:href => "Blog-three-column.html"}
-                        Blog 3 column Masonry
-                    %li
-                      %a{:href => "Blog-four-column.html"}
-                        Blog 4 column Masonry
+                  =link_to 'Стилисты', '#'
                 %li
-                  %a{:href => "gallery.html"}
-                    gallery
+                  =link_to 'Услуги', '#'
                   %ul.sub-menu
                     %li
-                      %a{:href => "gallery.html"}
-                        default gallery
+                      =link_to "Примеры работ", "#"
                     %li
-                      %a{:href => "full-gallery.html"}
-                        full width gallery
-                    %li
-                      %a{:href => "lightbox-gallery.html"}
-                        gallery with lightbox
-                    %li
-                      %a{:href => "mini-gallery.html"}
-                        gallery-mini gallery
+                      =link_to "Наши цены", "#"
                 %li
-                  %a{:href => "stylist.html"}
-                    stylist
+                  =link_to 'Контакты', '#'
+                %li
+                  =link_to 'О салоне', '#'
                   %ul.sub-menu
                     %li
-                      %a{:href => "stylist.html"}
-                        Stylists Default
+                      =link_to 'События', '#'
                     %li
-                      %a{:href => "stylist-circle.html"}
-                        Stylists Circled
-                %li
-                  %a{:href => "prices-simple.html"}
-                    prices
-                  %ul.sub-menu
+                      =link_to 'Обучение', '#'
                     %li
-                      %a{:href => "prices-simple.html"}
-                        Prices – Simple
-                    %li
-                      %a{:href => "prices-tabs.html"}
-                        Prices – Tabs
-                %li
-                  %a{:href => "accordion-toggle.html"}
-                    pages
-                  %ul.sub-menu
-                    %li
-                      %a{:href => "accordion-toggle.html"}
-                        %i.fa.fa-list-ul>
-                        accordion &amp; toggles
-                    %li
-                      %a{:href => "shortcodes-columns.html"}
-                        %i.fa.fa-th-list>
-                        columns
-                    %li
-                      %a{:href => "shortcodes-buttons.html"}
-                        %i.fa.fa-minus-square>
-                        buttons
-                    %li
-                      %a{:href => "count-blocks.html"}
-                        %i.fa.fa-clock-o>
-                        count blocks
-                    %li
-                      %a{:href => "shortcodes-google-maps.html"}
-                        %i.fa.fa-map-marker>
-                        google maps
-                    %li
-                      %a{:href => "shortcodes-iconography.html"}
-                        %i.fa.fa-bug>
-                        iconography
-                    %li
-                      %a{:href => "premium-rotating-circles.html"}
-                        %i.fa.fa-dot-circle-o>
-                        Premium Rotating Circles
-                    %li
-                      %a{:href => "Pricing-tables.html"}
-                        %i.fa.fa-columns>
-                        Pricing Tables
-                %li
-                  %a{:href => "contact.html"}
-                    contact
-                %li
-                  %a{:href => "#"}
-                    buy
+                      =link_to 'Сертификаты', '#'
+
           / navbar_collapse
         #appointment_btn.pull-right.hidden-xs
           .appointment_btn
             %a{:href => "booking.html"}
-              Book an appointment
+              Записаться к мастеру
   / header menu section end
 / header menu section end

@@ -6,7 +6,7 @@
         / buy now
         .col-sm-3.col-lg-3
           %h4.widget-title
-            buy now
+            ="запишитесь сегодня".mb_chars.upcase
           .textwidget
             %p
               If you come all the way down here, you probably like our
@@ -20,7 +20,7 @@
         / instagram
         .col-sm-3.col-lg-3
           %h4.widget-title
-            TAGGED #BEARDBRAND ON INSTAGRAM
+            НАШ ТЭГ #БОРОДАИЗВАТЫ В ИНСТАГРАМЕ
           .photo_tiles
             %ul
               %li
@@ -45,62 +45,63 @@
         / about us
         .col-sm-3.col-lg-3
           %h4.widget-title
-            about us
+            О студии
           .textwidget
             %p
-              Barber Saloon is a vintage design barber that focuses on your beard's best experience.
+              =@general_settings.upper_text
+              
             %ul.contact
               %li
                 %i.fa.fa-phone>
-                (+386) 40 123 456
+                =@general_settings.phone
               %li
                 %i.fa.fa-envelope>
-                info@barber.com
+                =@general_settings.email
               %li
                 %i.fa.fa-home>
-                www.barber.com
+                www.as-studio-lash.ru
         / about us end
         / opening time
         .col-sm-3.col-lg-3
           %h4.widget-title
-            OPENING TIMES
+            РАБОЧИЕ ЧАСЫ
           .textwidget
             %ul.opening_times
               %li
                 %span.day
-                  Monday
+                  Понедельник
                 %span.time
-                  08:00 - 15:00
+                  =@general_settings.monday
               %li
                 %span.day
-                  Tuesday
+                  Вторник
                 %span.time
-                  10:00 - 16:00
+                  =@general_settings.thuesday
               %li
                 %span.day
-                  Wednesday
+                  Среда
                 %span.time
-                  08:00 - 15:00
+                  =@general_settings.wednesday
               %li
                 %span.day
-                  Thursday
+                  Четверг
                 %span.time
-                  08:00 - 18:00
+                  =@general_settings.thursday
               %li
                 %span.day
-                  Friday
+                  Пятница
                 %span.time
-                  07:00 - 19:00
+                  =@general_settings.friday
               %li
                 %span.day
-                  Saturday
+                  Суббота
                 %span.time
-                  Closed
+                  =@general_settings.saturday
               %li
                 %span.day
-                  Sunday
+                  Воскресенье
                 %span.time
-                  closed
+                  =@general_settings.sunday
         / opening time end
 / footer end
 / copyright_footer
@@ -109,13 +110,14 @@
     .row
       .copyright_area
         %p
-          trim your beard at
+          ваша красота в салоне
           %img{:alt => "", :src => "images/footer_icon.png"}/
-          the barber saloon
+          As-studio
         #copyright
-          The Barber Saloon @2015 by
-          %a{:href => "http://himanshusofttech.com/"}
-            Himanshusofttech
+          Студия Снежаны Черновой @2016 by
+          =link_to "http://blog.handsomecake.com" do
+            Handsomecake
+
 / copyright_footer
 / bottom tab
 .bottom_tab
