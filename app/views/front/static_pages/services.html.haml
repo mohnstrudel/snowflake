@@ -1,0 +1,43 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: "Наши услуги" }
+
+
+/ category slider section end
+.ds_wrapper.portfolio_slider_sec
+  .container
+    .row
+      / all tabs_part
+      #tabs.ds_tabs
+        .col-sm-4.col-lg-3.col-md-4
+          %ul
+            -@subcategories.each_with_index do |subcat, index|
+              %li
+                =link_to "#{subcat.name} - от #{subcat.cheapest_service} руб.", "#tabs-#{index}"
+        .col-sm-8.col-lg-9.col-md-8
+          -@subcategories.each_with_index do |subcat, index|
+            / tab start
+            =content_tag(:div, id: "tabs-#{index}", class: "tab_1") do
+              / tab content start
+              .col-sm-8.col-lg-8
+                %h2
+                  =subcat.name.mb_chars.upcase
+                %p
+                  =subcat.description
+                %h2
+                  ВСЕ УСЛУГИ
+                %ul.lists
+                  -subcat.services.each do |service|
+                    %li
+                      =service.title
+                %p
+                  Prices, products and offers may vary per location. Call your local Barber's Salon for prices. We offer various haircuts and beard trimming of all sorts. But our specialty is the proper trimming of
+                  %strong
+                    your beard.
+              / tab content  end
+              / tab gallery
+              .col-sm-4.col-lg-4.col-md-4.tab_gallery
+                %ul.gallery.clearfix
+                  -subcat.services.each do |service|
+                    %li
+                      =link_to service.pictures.first.image.thumb_280_240.url, title: service.title do
+                        =image_tag service.pictures.first.image.thumb_280_240.url, alt: service.title, class: "img-responsive"
+                  / tab gallery

@@ -12,6 +12,6 @@ module Snowflake
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.sp_categories = %w(Мастера Услуги)
+    config.sp_categories = %w(Мастера Услуги Примеры Контакты)
   end
 end

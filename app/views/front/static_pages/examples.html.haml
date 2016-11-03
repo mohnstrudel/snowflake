@@ -1,0 +1,52 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: @examples_page.title }
+
+/ category slider section end
+.ds_wrapper.portfolio_slider_sec
+	.container
+		.row
+			.porfolio_part.full_width
+				%ul.blog_ul
+					%li.active
+						%a.filter.current{"data-filter" => "all", :href => "#"}
+							%span
+								Show All
+					%li
+						%a.filter{"data-filter" => ".cat-2", :href => "#"}
+							%span
+								Beards
+					%li
+						%a.filter{"data-filter" => ".cat-3", :href => "#"}
+							%span
+								Mustaches
+					%li
+						%a.filter{"data-filter" => ".cat-4", :href => "#"}
+							%span
+								hair style
+			#porfolio_filter.full_width.lightbox_gallary
+				.gallery_light.clearfix
+					-@instagram.take(12).each_with_index do |instagram, index|
+						.col-sm-4.col-md-4.col-lg-3.col-xs-6.mix.cat-3.cat-5{"data-myorder" => index}
+							.light_img_wrap
+								=link_to instagram["display_src"] do
+									=image_tag instagram["thumbnail_src"], class: "img-responsive", title: "hello"
+							.post_meta
+								%a{:href => "complete-makeover.html"}
+									.post_meta_title
+										Ресинцы
+								.home_portfolio_categories
+									стиль, наращивание
+			/ gallery
+			/ paginations button
+			.full_width
+				.col-sm-12
+					.paginations
+						%span.pages
+							Page 1 of 2
+						%span.current
+							1
+						%a.page{:href => "#", :title => "1"}
+							2
+						%a.nextlink{:href => "#"}
+							»
+			/ paginations button
+/ footer start

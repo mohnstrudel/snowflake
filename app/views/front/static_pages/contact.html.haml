@@ -1,0 +1,68 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: @contact_page.title }
+
+/ category slider section end
+.ds_wrapper.contact_main
+  .container
+    .row
+      .content
+        %p
+          =@contact_page.body
+        .contact_page
+          .col-lg-4.col-sm-4.col-md-4.col-xs-12
+            %h2.block_title
+              свяжитесь с нами
+            .break.clearfix
+            .contact_form
+              %fieldset
+                %label
+                  ваше имя (обязательно)
+                %input#uname.name{:name => "name", :type => "text"}/
+              %fieldset
+                %label
+                  ваш телефон (обязательно)
+                %input#umail.name{:name => "email", :type => "email"}/
+              %fieldset
+                %label
+                  заголовок (обязательно)
+                %input#subj.name{:name => "subject", :type => "text"}/
+              %fieldset
+                %label
+                  ваше обращение
+                %textarea#msg.textarea{:cols => "20", :name => "your-message", :rows => "5"}
+                  :preserve
+              %fieldset
+                %input#em_submit.submit_frm{:name => "btn", :type => "submit", :value => "Send"}/
+              %p#err
+          .col-lg-4.col-sm-4.col-md-4.col-xs-12
+            %h2.block_title
+              КАК НАС НАЙТИ
+            .contact_map
+              %iframe{:allowfullscreen => "", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d177167.3133768907!2d14.39201334183366!3d46.06627000673857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476531f5969886d1%3A0x400f81c823fec20!2sLjubljana%2C+Slovenia!5e0!3m2!1sen!2sin!4v1444726738583"}
+          .col-lg-4.col-sm-4.col-md-4.col-xs-12
+            %h2.block_title
+              ДОПОЛНИТЕЛЬНО
+            .block_widget
+              .widget.widget_text
+                .text_widget
+                  %p
+                    =@general_settings.upper_text
+              .widget.widget_text
+                .text_widget.address_widget
+                  %ul
+                    %li
+                      %i.fa.fa-home>
+                      =@general_settings.name
+                      %br/
+                      =@general_settings.address
+                    %li
+                      %i.fa.fa-phone>
+                      =@general_settings.phone
+                    %li
+                      %i.fa.fa-envelope>
+                      =@general_settings.email
+                    %li
+                      %i.fa.fa-instagram>
+                      =@general_settings.instagram
+      / row end
+    / container
+.divider.clearfix
