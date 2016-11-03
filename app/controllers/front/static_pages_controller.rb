@@ -4,6 +4,7 @@ class Front::StaticPagesController < FrontController
   	@cheapest_services = Service.order(price: :asc).limit(6)
   	@subcategories = Subcategory.all
   	@team = Master.all
+  	@general_settings = General.first
   end
 
   def team
