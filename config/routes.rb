@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   scope module: :front do 
     root 'static_pages#index'
+
+    get 'team', to: 'static_pages#team'
   end
 
   namespace :admin do
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
 
     resources :services
     resources :masters
+    resources :static_pages
 
 
   end

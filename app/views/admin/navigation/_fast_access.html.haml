@@ -2,15 +2,15 @@
 #topbar-dropmenu.alt.topbar-menu-open{style: "display: block;"}
   .topbar-menu.row
     .col-xs-4.col-sm-2
-      =link_to '#', class: "metro-tile bg-primary light" do
+      =link_to admin_static_pages_path, class: "metro-tile bg-primary light", method: :get do
         %span.glyphicon.glyphicon-book.text-muted
-        %span.metro-title Товары
+        %span.metro-title Страницы
     .col-xs-4.col-sm-2
-      =link_to admin_masters_path, class: "metro-tile bg-success light" do
+      =link_to admin_masters_path, class: "metro-tile bg-success light", method: :get do
         %span.glyphicon.glyphicon-user.text-muted
         %span.metro-title Мастера
     .col-xs-4.col-sm-2
-      =link_to admin_services_path, class: "metro-tile bg-system light" do
+      =link_to admin_services_path, class: "metro-tile bg-system light", method: :get do
         %span.glyphicon.glyphicon-tag.text-muted
         %span.metro-title Услуги
     .col-xs-4.col-sm-2

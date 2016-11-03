@@ -1,0 +1,35 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: @static_page.title }
+
+/ category slider section end
+.ds_wrapper.bg_white.portfolio_slider_sec
+	.container
+		.full_width.content
+			%p
+				=@static_page.body
+			.ds_wrapper.circle_style_section
+				.divider
+				-@team.in_groups_of(4).each do |group|
+					.row
+						-group.each_with_index do |member, member_index|
+							/ team_main full_width
+							-if member
+								.col-sm-6.col-md-3.col-xs-12.col-lg-3
+									.ih-item.circle.effect1
+										=link_to '#' do
+											.spinner
+											.img
+												=image_tag member.picture.thumb_186.url, alt: member.name
+											.info
+												.info-back
+													%h3
+														=member.name
+													%p
+														=member.description
+														%strong
+															james@barber.com
+
+					.clearfix
+					.height
+						.cherry-line
+					.clearfix
+					/ barbers section end

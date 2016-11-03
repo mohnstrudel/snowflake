@@ -83,4 +83,3 @@ production:
   database: snowflake_production
   username: snowflake
   password: <%= ENV["SNOWFLAKE_DATABASE_PASSWORD"] %>
-  host: localhost

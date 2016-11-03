@@ -31,6 +31,10 @@ jQuery(document).ready ->
     placeholder: 'Выбрать категорию для мастера'
     allowClear: true
     # minimumInputLength: 3
+
+  
+
+
   
   # Init Select for Patterns - Basic Multiple
   $('.select-multiple-sizes').select2

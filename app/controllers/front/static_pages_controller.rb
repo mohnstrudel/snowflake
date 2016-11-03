@@ -3,7 +3,11 @@ class Front::StaticPagesController < FrontController
   	@services = Service.all
   	@cheapest_services = Service.order(price: :asc).limit(6)
   	@subcategories = Subcategory.all
-  	@general_settings = General.first
   	@team = Master.all
+  end
+
+  def team
+  	@team = Master.all
+  	@static_page = StaticPage.where(sp_category: 'Мастера')[0]
   end
 end
