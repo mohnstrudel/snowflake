@@ -6,4 +6,9 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :pictures, allow_destroy: true
 
   scope :cheapest, -> { minimum(:price) }
+
+  has_many	:document_services
+  has_many	:documents, through: :document_services
+
+  accepts_nested_attributes_for :document_services
 end

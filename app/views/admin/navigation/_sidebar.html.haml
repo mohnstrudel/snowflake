@@ -73,7 +73,10 @@
         =link_to admin_requests_path, method: :get do
           %span.glyphicon.glyphicon-tag
           %span.sidebar-title Заявки 
-          
+      %li
+        =link_to admin_documents_path, method: :get do
+          %span.glyphicon.glyphicon-book
+          %span.sidebar-title Документы
 
       / %li.sidebar-label.pt25.pb10 User Stats
       / %li.sidebar-stat

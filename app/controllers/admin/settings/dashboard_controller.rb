@@ -4,5 +4,6 @@ class Admin::Settings::DashboardController < AdminController
   	@subcategories = Subcategory.all
   	@general = General.all
   	@postcategories = Postcategory.all
+  	@doctypes = Doctype.all
   end
 end

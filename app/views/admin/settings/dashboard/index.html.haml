@@ -13,6 +13,8 @@
 				%li
 					/ %a{"data-toggle" => "tab", :href => "#tab1_4"} Общие
 					=link_to "Категории постов", "#tab1_4", data: { toggle: "tab" }
+				%li
+					=link_to "Типы документов", "#tab1_5", data: { toggle: "tab" }
 
 		.panel-body.p25.pb5
 			.tab-content.pn.br-n.admin-form
@@ -30,3 +32,6 @@
 				#tab1_4.tab-pane
 					.section.row
 						=render partial: 'admin/shared/list_items', locals: {name: 'посты', current_objects: @postcategories, single: "postcategory", additional_namespace: "settings_"}
+				#tab1_5.tab-pane
+					.section.row
+						=render partial: 'admin/shared/list_items', locals: {name: 'типы документов', current_objects: @doctypes, single: "doctype", additional_namespace: "settings_"}

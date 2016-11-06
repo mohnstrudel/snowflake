@@ -1,0 +1,73 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: "Сертификаты и документы", subtitle: @document.title}
+
+/ category slider section end
+.ds_wrapper.portfolio_slider_sec
+  .container
+    .row
+      .content
+        / category slider start
+        .col-sm-7.col-lg-7.col-md-7
+          .slider_main
+            %ul.slider_bx
+              -@document.pictures.each do |pic|
+                %li
+                  =image_tag pic.image.medium_thumb.url, class: "img-responsive"
+
+        / category slier end
+        / right side description
+        .col-sm-5.col-lg-5.col-md-5
+          .ds_projectdescription.full_width
+            .date_comment.full_width
+              .project_section
+                %i.fa.fa-user>
+                Категория документа
+                %span.ds_author
+                  =@document.doctype.title
+              .project_section
+                %i.fa.fa-calendar>
+                Дата получения документа
+                %span.posted-date.port
+                  =Russian::strftime(@document.created_at, "%e %b %Y")
+              .project_section
+                %i.fa.fa-user>
+                Hair Stylist
+                %span.ds_author
+                  John Barbista
+              -if @document.services.any?
+                .ds_single_portfolio_skils.full_width
+                  %ul
+                    -@document.services.each do |service|
+                      %li
+                        %i.fa.fa-check-square>
+                        =service.title
+              .project_section.last
+                .link
+                  =link_to services_path, title: "Все наши услуги", method: :get do
+                    Все наши услуги
+            .ds_custom_images.full_width
+              %a.addthis_button_facebook{:href => "#", :title => "Facebook"}
+                %i.fa.fa-facebook
+              %a.addthis_button_twitter{:href => "#", :title => "Tweet"}
+                %i.fa.fa-twitter
+              %a.addthis_button_pinterest_share{:href => "#", :target => "_blank", :title => "Pinterest"}
+                %i.fa.fa-pinterest
+              %a.addthis_button_email{:href => "#", :target => "_blank", :title => "Email"}
+                %i.fa.fa-envelope
+              %a.addthis_button_more{:href => "#", :target => "_blank", :title => "View more services"}
+                %i.fa.fa-plus
+            .clear
+        / right side description
+        / gallery
+        .col-lg-12.col-sm-12
+          .detail_gallery.full_width
+            %ul.gallery.clearfix
+              -@document.pictures.each do |pic|
+                %li
+                  =link_to pic.image.url, data: {gal: "prettyPhoto[gallery1]"} do
+                    =image_tag pic.image.thumb_124.url, title: @document.title
+        / gallery
+        / content_area
+        .content_part.full_width
+          .col-sm-12
+            %p
+              =@document.description

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106164104) do
+ActiveRecord::Schema.define(version: 20161106185318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,33 @@ ActiveRecord::Schema.define(version: 20161106164104) do
     t.string   "picture"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "doctypes", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "document_id"
+    t.index ["document_id"], name: "index_doctypes_on_document_id", using: :btree
+  end
+
+  create_table "document_services", force: :cascade do |t|
+    t.integer  "document_id"
+    t.integer  "service_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["document_id"], name: "index_document_services_on_document_id", using: :btree
+    t.index ["service_id"], name: "index_document_services_on_service_id", using: :btree
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "type"
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "doctype_id"
+    t.index ["doctype_id"], name: "index_documents_on_doctype_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -93,10 +120,12 @@ ActiveRecord::Schema.define(version: 20161106164104) do
   create_table "pictures", force: :cascade do |t|
     t.string   "image"
     t.integer  "service_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "course_id"
+    t.integer  "document_id"
     t.index ["course_id"], name: "index_pictures_on_course_id", using: :btree
+    t.index ["document_id"], name: "index_pictures_on_document_id", using: :btree
     t.index ["service_id"], name: "index_pictures_on_service_id", using: :btree
   end
 
@@ -168,8 +197,13 @@ ActiveRecord::Schema.define(version: 20161106164104) do
   end
 
   add_foreign_key "courses", "subcategories"
+  add_foreign_key "doctypes", "documents"
+  add_foreign_key "document_services", "documents"
+  add_foreign_key "document_services", "services"
+  add_foreign_key "documents", "doctypes"
   add_foreign_key "masters", "categories"
   add_foreign_key "pictures", "courses"
+  add_foreign_key "pictures", "documents"
   add_foreign_key "pictures", "services"
   add_foreign_key "posts", "postcategories"
   add_foreign_key "services", "categories"

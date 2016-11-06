@@ -1,0 +1,32 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: "Наши сертификаты и документы" }
+/ category slider section end
+.ds_wrapper.portfolio_slider_sec
+  .container
+    .content
+      .porfolio_part.full_width
+        %ul.blog_ul
+          %li.active
+            %a.filter.current{"data-filter" => "all", :href => "#"}
+              %span
+                Все
+          -@doctypes.each_with_index do |doctype, index| 
+            %li
+              =link_to '#', data: { filter: ".cat-#{index}"}, class: "filter" do
+                %span
+                  =doctype.title
+      #porfolio_filter.full_width.gallery_page
+        / Ractangle first
+        -@documents.each_with_index do |document, index|
+          =content_tag(:div, class: "col-lg-4 col-md-4 col-xs-4 ds_ractangle mix cat-#{index}") do
+            .ds_item
+              =image_tag document.pictures.first.image.thumb_383_293.url, class: "img-responsive"
+              / %img.img-responsive{:alt => "", :src => "http://placehold.it/383x293"}/
+              / overlay
+              =link_to document_path(document) do
+                .ract_overlay
+                  .rect_description
+                    %h3
+                      =document.title
+                    .port_catagory
+                      -document.services.each do |service|
+                        =service.title

@@ -30,7 +30,7 @@ class Admin::ServicesController < AdminController
 	end
 
 	def destroy
-		if @@service.destroy
+		if @service.destroy
 			
 			redirect_to admin_services_path
 			flash[:alert] = 'Удалено успешно'

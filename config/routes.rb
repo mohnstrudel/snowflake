@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     resources :requests
     resources :posts
+    resources :documents
   end
 
   namespace :admin do
@@ -30,8 +31,10 @@ Rails.application.routes.draw do
       resources :subcategories
       resources :generals
       resources :postcategories
+      resources :doctypes
     end
 
+    resources :documents
     resources :requests
     resources :services
     resources :masters
