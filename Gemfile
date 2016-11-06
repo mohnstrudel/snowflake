@@ -30,6 +30,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use the motherrussian language, you dense motherfucker
+gem 'russian'
+
+
 # Lets install some native icon support
 gem "font-awesome-rails"
 gem 'bootstrap-glyphicons'

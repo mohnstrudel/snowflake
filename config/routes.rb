@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   scope module: :front do 
@@ -13,6 +10,7 @@ Rails.application.routes.draw do
     get 'services', to: 'static_pages#services'
     get 'examples', to: 'static_pages#examples'
     get 'contact', to: 'static_pages#contact'
+    resources :posts
   end
 
   namespace :admin do
@@ -28,12 +26,13 @@ Rails.application.routes.draw do
       end
       resources :subcategories
       resources :generals
+      resources :postcategories
     end
 
     resources :services
     resources :masters
     resources :static_pages
-
+    resources :posts
 
   end
 end

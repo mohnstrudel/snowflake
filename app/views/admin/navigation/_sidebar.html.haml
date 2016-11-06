@@ -46,9 +46,9 @@
     %ul.nav.sidebar-menu
       %li.sidebar-label.pt20 Управление
       %li
-        =link_to '#', method: :get do
+        =link_to admin_static_pages_path, method: :get do
           %span.glyphicon.glyphicon-book
-          %span.sidebar-title Товары
+          %span.sidebar-title Статичные страницы
       %li
         =link_to admin_masters_path, method: :get do
           %span.glyphicon.glyphicon-user
@@ -61,6 +61,10 @@
         =link_to '#', method: :get do
           %span.glyphicon.glyphicon-tag
           %span.sidebar-title Заказы
+      %li
+        =link_to admin_posts_path, method: :get do
+          %span.glyphicon.glyphicon-list
+          %span.sidebar-title События (новости)
           
 
       / %li.sidebar-label.pt25.pb10 User Stats

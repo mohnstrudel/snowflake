@@ -10,6 +10,10 @@
 					%a{"data-toggle" => "tab", :href => "#tab1_2"} Подкатегории
 				%li
 					%a{"data-toggle" => "tab", :href => "#tab1_3"} Общие
+				%li
+					/ %a{"data-toggle" => "tab", :href => "#tab1_4"} Общие
+					=link_to "Категории постов", "#tab1_4", data: { toggle: "tab" }
+
 		.panel-body.p25.pb5
 			.tab-content.pn.br-n.admin-form
 				#tab1_1.tab-pane.active
@@ -23,4 +27,6 @@
 					.section.row
 						=render partial: 'admin/shared/list_items', locals: {name: 'общая', current_objects: @general, single: "general", additional_namespace: "settings_"}
 					/ end section row section
-					
+				#tab1_4.tab-pane
+					.section.row
+						=render partial: 'admin/shared/list_items', locals: {name: 'посты', current_objects: @postcategories, single: "postcategory", additional_namespace: "settings_"}

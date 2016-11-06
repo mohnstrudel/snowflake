@@ -1,0 +1,46 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: "Наши новости и события" }
+/ heading
+/ category slider section end
+.ds_wrapper.portfolio_slider_sec
+	.container
+		.row
+			.content
+				/ category slider start
+				.col-sm-12.col-lg-12.col-md-12
+					-@posts.each do |post|
+						/ blog category	start
+						.ds_blogpostcategory.full_width
+							.blogimg.full_width
+								%a{:href => "#"}
+									=image_tag post.mainpic.url, class: 'img-responsive'
+							.ds_entry.full_width
+								.ds_meta
+									.topLeftBlog
+										.ds_post-meta
+											.post-icon
+											%span
+												=Russian::strftime(post.created_at, "%e %b %Y")
+												
+											%span
+												=post.postcategory.title
+										%h2.title
+											=link_to post.title, post_path(post)
+												
+									.ds_blogContent.full_width
+										.ds_blog1content.full_width
+											%p
+												=truncate(post.body, length: 300, omission: '... (дальше)')
+										=link_to 'Читать далее', post_path(post), class: 'blogmore'
+						/ blog category end
+						/ pagination start
+		.full_width
+			.paginations
+				%span.pages
+					Page 1 of 2
+				%span.current
+					1
+				%a.page{:href => "#", :title => "1"}
+					2
+				%a.nextlink{:href => "#"}
+					»
+		/ pagination end

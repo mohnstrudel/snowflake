@@ -11,7 +11,10 @@
           -current_objects.each do |object|
             %tr
               %td.text-left
-                =link_to object.name, send("edit_admin_#{additional_namespace}#{single}_path", object), method: :get
+                -if object.respond_to?(:name)
+                  =link_to object.name, send("edit_admin_#{additional_namespace}#{single}_path", object), method: :get
+                -elsif object.respond_to?(:title)
+                  =link_to object.title, send("edit_admin_#{additional_namespace}#{single}_path", object), method: :get
               %td.text-right
                 .btn-group.text-right
                   %button.btn.btn-success.br2.btn-xs.fs12.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}

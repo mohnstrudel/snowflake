@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103192705) do
+ActiveRecord::Schema.define(version: 20161106082729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,22 @@ ActiveRecord::Schema.define(version: 20161103192705) do
     t.index ["service_id"], name: "index_pictures_on_service_id", using: :btree
   end
 
+  create_table "postcategories", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "postcategory_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "mainpic"
+    t.index ["postcategory_id"], name: "index_posts_on_postcategory_id", using: :btree
+  end
+
   create_table "services", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -129,6 +145,7 @@ ActiveRecord::Schema.define(version: 20161103192705) do
 
   add_foreign_key "masters", "categories"
   add_foreign_key "pictures", "services"
+  add_foreign_key "posts", "postcategories"
   add_foreign_key "services", "categories"
   add_foreign_key "services", "subcategories"
   add_foreign_key "subcategories", "categories"

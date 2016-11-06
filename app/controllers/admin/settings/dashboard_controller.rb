@@ -3,5 +3,6 @@ class Admin::Settings::DashboardController < AdminController
   	@categories = Category.all
   	@subcategories = Subcategory.all
   	@general = General.all
+  	@postcategories = Postcategory.all
   end
 end

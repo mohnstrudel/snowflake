@@ -28,11 +28,18 @@
                       =f.file_field :picture, id: 'fileupload', type: :file
                       / %input{:type => "file", name: 'picture'}
           .col-md-8.pl15
-            .section.mb10
-              %label.field.prepend-icon{:for => "name2"}
-                =f.text_field :name, id: "price", class: "event-name gui-input br-light light", placeholder: 'Название сущности'
-                %label.field-icon{:for => "name2"}
-                  %i.fa.fa-tag
+            -if current_objects.respond_to?(:name)
+              .section.mb10
+                %label.field.prepend-icon{:for => "name2"}
+                  =f.text_field :name, id: "price", class: "event-name gui-input br-light light", placeholder: 'Название сущности'
+                  %label.field-icon{:for => "name2"}
+                    %i.fa.fa-tag
+            -if current_objects.respond_to?(:title)
+              .section.mb10
+                %label.field.prepend-icon{:for => "name2"}
+                  =f.text_field :title, id: "title", class: "event-name gui-input br-light light", placeholder: 'Название сущности'
+                  %label.field-icon{:for => "name2"}
+                    %i.fa.fa-tag
             -if current_objects.respond_to?(:category_id)
               .section.mb10
                 %label.field.prepend-icon
