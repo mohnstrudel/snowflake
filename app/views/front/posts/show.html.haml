@@ -1,2 +1,29 @@
-%h1 Front::Posts#show
-%p Find me in app/views/front/posts/show.html.haml
+=render partial: 'front/navigation/breadcrumbs', locals: { title: "Наши новости и события", subtitle: @post.postcategory.title}
+
+
+.ds_wrapper.portfolio_slider_sec
+	.container
+		.row
+			.content
+				/ category slider start
+				.col-sm-12.col-lg-12.col-md-12
+					/ blog category	start
+					.ds_singledefult.full_width
+						.blogimg.single_image.full_width
+							%a{:href => "#"}
+								=image_tag @post.mainpic.url, class: "img-responsive", alt: @post.title
+						.ds_entry.full_width
+							.ds_meta
+								.topLeftBlog
+									.ds_post-meta
+										.post-icon
+										%span
+											=Russian::strftime(@post.created_at, "%e %b %Y")
+										%span
+											%a{:href => "#"}>
+												=@post.postcategory.title
+									.full_width.middle_content
+										%p
+											%span.big_letter>
+												=@post.body[0]
+											=@post.body[1..-1]
