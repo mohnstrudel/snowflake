@@ -6,3 +6,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree ../../../vendor/assets/javascripts/front/.
+//= require_tree ../../../app/assets/javascripts/front/.
