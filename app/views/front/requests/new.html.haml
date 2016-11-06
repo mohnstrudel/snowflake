@@ -1,0 +1,22 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: 'Запись к мастеру' }
+
+.ds_wrapper.portfolio_slider_sec
+  .container
+    .row
+      .full_width.content
+        .booking_page.full_width
+          .col-lg-6.col-sm-6.col-md-6.col-xs-12
+            %h2.block_title
+              ЗАПИСАТЬСЯ НА УСЛУГУ К МАСТЕРУ
+            %p
+              ="Позвоните нам по телефону - #{General.first.phone} или приходите по адресу: #{General.first.address}."
+            .break.clearfix
+            .booking_map
+              %iframe{:allowfullscreen => "", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d177167.3133768907!2d14.39201334183366!3d46.06627000673857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476531f5969886d1%3A0x400f81c823fec20!2sLjubljana%2C+Slovenia!5e0!3m2!1sen!2sin!4v1444726738583"}
+          .col-lg-6.col-sm-6.col-md-6.col-xs-12
+            =render partial: 'front/shared/contact', locals: { title: 'Онлайн запись', request_type: 'service', request_class: "first"}
+            .clearfix
+      / full_width end
+    / row end
+  / container
+.divider.clearfix

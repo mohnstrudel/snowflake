@@ -32,4 +32,9 @@ class Front::StaticPagesController < FrontController
     @general_settings = General.first
   end
 
+  def courses
+    @courses = Course.all
+    @subcategories = Subcategory.all
+  end
+
 end

@@ -1,0 +1,47 @@
+=render partial: 'front/navigation/breadcrumbs', locals: { title: "Обучение в нашей студии" }
+
+
+/ category slider section end
+.ds_wrapper.portfolio_slider_sec
+  .container
+    .row
+      / all tabs_part
+      #tabs.ds_tabs
+        .col-sm-4.col-lg-3.col-md-4
+          %ul
+            -@courses.each_with_index do |course, index|
+              %li
+                =link_to "#{course.title}", "#tabs-#{index}"
+        .col-sm-8.col-lg-9.col-md-8
+          -@courses.each_with_index do |course, index|
+            / tab start
+            =content_tag(:div, id: "tabs-#{index}", class: "tab_1") do
+              / tab content start
+              .col-sm-8.col-lg-8
+                %h2
+                  =course.subcategory.name.mb_chars.upcase
+                %p
+                  =course.subcategory.description
+                %h2
+                  О ДАННОМ КУРСЕ
+                %ul.lists
+                  %li 
+                    ="Максимально кол-во участников - #{course.max_people}"
+                  %li
+                    ="Стоимость курса - #{course.price} руб."
+                  %li
+                    ="Длительность курса - #{course.duration}"
+                %p
+                  =course.description                  
+                
+                =render partial: 'front/shared/contact', locals: { title: 'Записаться на курс', request_type: 'course'}
+              
+              / tab content  end
+              / tab gallery
+              .col-sm-4.col-lg-4.col-md-4.tab_gallery
+                %ul.gallery.clearfix
+                  -course.pictures.each do |picture|
+                    %li
+                      =link_to picture.image.thumb_280_240.url, title: course.title do
+                        =image_tag picture.image.thumb_280_240.url, alt: course.title, class: "img-responsive"
+                  / tab gallery

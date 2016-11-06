@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get 'services', to: 'static_pages#services'
     get 'examples', to: 'static_pages#examples'
     get 'contact', to: 'static_pages#contact'
+    get 'courses', to: 'static_pages#courses'
+
+    resources :requests
     resources :posts
   end
 
@@ -29,10 +32,12 @@ Rails.application.routes.draw do
       resources :postcategories
     end
 
+    resources :requests
     resources :services
     resources :masters
     resources :static_pages
     resources :posts
+    resources :courses
 
   end
 end

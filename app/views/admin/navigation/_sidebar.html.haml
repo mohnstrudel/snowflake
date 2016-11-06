@@ -65,6 +65,14 @@
         =link_to admin_posts_path, method: :get do
           %span.glyphicon.glyphicon-list
           %span.sidebar-title События (новости)
+      %li
+        =link_to admin_courses_path, method: :get do
+          %span.glyphicon.glyphicon-blackboard
+          %span.sidebar-title Обучение 
+      %li
+        =link_to admin_requests_path, method: :get do
+          %span.glyphicon.glyphicon-tag
+          %span.sidebar-title Заявки 
           
 
       / %li.sidebar-label.pt25.pb10 User Stats

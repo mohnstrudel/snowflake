@@ -1,0 +1,57 @@
+/ comment_form start
+-if request_class == "first"
+  %h2.block_title
+    =title
+  =form_for [Request.new], html: {class: "comment_form full_width"}, remote: true do |f|
+    .comment_field
+      %label
+        имя
+        %small
+          (обязательно)
+      =f.text_field :name, value: "", class: "author"
+    .comment_field
+      %label
+        телефон
+        %small
+          (обязательно)
+      =f.text_field :phone, value: "", class: "author", aria: {required: true}
+    .comment_field
+      %label
+        почта
+      =f.text_field :email, value: "", class: "author"
+    .full_width
+      =f.text_area :comment, value: "", class: "author", id: "text_ara_comment", placeholder: "Ваш комментарий"
+      =f.hidden_field :request_type, value: request_type
+          
+    .full_width
+      =f.submit "Отправить", id: "submit_frm"
+  #err
+-else
+  .ds_commentform.full_width
+    %h3.related_heading.related_post_d
+      =title
+  =form_for [Request.new], html: {class: "comment_form full_width"}, remote: true do |f|
+    .comment_field
+      %label
+        имя
+        %small
+          (обязательно)
+      =f.text_field :name, value: "", class: "author"
+    .comment_field
+      %label
+        телефон
+        %small
+          (обязательно)
+      =f.text_field :phone, value: "", class: "author", aria: {required: true}
+    .comment_field
+      %label
+        почта
+      =f.text_field :email, value: "", class: "author"
+    .full_width
+      =f.text_area :comment, value: "", class: "author", id: "text_ara_comment"
+      =f.hidden_field :request_type, value: request_type
+          
+    .full_width
+      =f.submit "Отправить", id: "submit_frm"
+  #err
+/ comment_form end

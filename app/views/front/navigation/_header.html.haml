@@ -69,14 +69,14 @@
                     %li
                       =link_to 'События', posts_path
                     %li
-                      =link_to 'Обучение', '#'
+                      =link_to 'Обучение', courses_path
                     %li
                       =link_to 'Сертификаты', '#'
 
           / navbar_collapse
         #appointment_btn.pull-right.hidden-xs
           .appointment_btn
-            %a{:href => "booking.html"}
-              Записаться к мастеру
+            =link_to 'Записаться к мастеру', new_request_path
+              
   / header menu section end
 / header menu section end
