@@ -32,15 +32,3 @@
 												=truncate(post.body, length: 300, omission: '... (дальше)')
 										=link_to 'Читать далее', post_path(post), class: 'blogmore'
 						/ blog category end
-						/ pagination start
-		.full_width
-			.paginations
-				%span.pages
-					Page 1 of 2
-				%span.current
-					1
-				%a.page{:href => "#", :title => "1"}
-					2
-				%a.nextlink{:href => "#"}
-					»
-		/ pagination end
