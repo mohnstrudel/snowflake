@@ -9,38 +9,20 @@
             ="запишитесь сегодня".mb_chars.upcase
           .textwidget
             %p
-              If you come all the way down here, you probably like our
-              %b
-                Barber
-              theme. To help you find where you can buy it, we prepared a solution for that also. Simply click the button below.
+              =General.first.footer_text
           .footer_button
-            %a{:href => "#", :target => "_blank"}
-              BUY NOW
+            =link_to 'Записаться к мастеру', new_request_path
         / buy now end
         / instagram
         .col-sm-3.col-lg-3
           %h4.widget-title
-            НАШ ТЭГ #БОРОДАИЗВАТЫ В ИНСТАГРАМЕ
+            ="НАШ ТЭГ ##{General.first.instagram_hashtag} В ИНСТАГРАМЕ"
           .photo_tiles
             %ul
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "", :src => "http://placehold.it/84x84"}/
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "", :src => "http://placehold.it/84x84"}/
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "", :src => "http://placehold.it/84x84"}/
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "", :src => "http://placehold.it/84x84"}/
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "", :src => "http://placehold.it/84x84"}/
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "", :src => "http://placehold.it/84x84"}/
+              -instagram.take(6).each do |instagram|
+                %li
+                  =link_to instagram["display_src"] do
+                    =image_tag instagram["thumbnail_src"], title: "hello", style: 'width: 84px;'
         / instagram end
         / about us
         .col-sm-3.col-lg-3

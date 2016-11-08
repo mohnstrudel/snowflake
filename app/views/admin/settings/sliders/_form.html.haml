@@ -1,0 +1,79 @@
+-@slider.errors.full_messages.each do |message|
+  =content_tag(:div, message, class: "alert alert-danger")
+
+=form_for [:admin, :settings, @slider] do |f|
+
+  / begin: .tray-center
+  .mw1000.center-block
+    / Настройки слайдера
+    .panel.panel-success.panel-border.top.mb35
+      .panel-heading
+        %span.panel-title Слайдер в шапке сайта
+      .panel-body.bg-light.dark
+        .admin-form
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "first_row"} Первая строка в тексте
+            .col-md-9
+              %label.field.prepend-icon
+                =f.text_field :first_row, id: "first_row", class: "gui-input", placeholder: "Первая строка"
+                %label.field-icon{:for => "first_row"}
+                  %i.fa.fa-edit
+
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "second_row"} Вторая строка в тексте
+            .col-md-9
+              %label.field.prepend-icon
+                =f.text_field :second_row, id: "second_row", class: "gui-input", placeholder: "Вторая строка"
+                %label.field-icon{:for => "second_row"}
+                  %i.fa.fa-edit
+
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "third_row"} Третья строка в тексте
+            .col-md-9
+              %label.field.prepend-icon
+                =f.text_field :third_row, id: "third_row", class: "gui-input", placeholder: "Третья строка"
+                %label.field-icon{:for => "third_row"}
+                  %i.fa.fa-edit
+
+          .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "privacy-policy"} Первое изображение
+            .col-md-9
+              .section
+                %label.field.prepend-icon.file
+                  %span.button Выбрать картинку
+                  =f.file_field :image, id: "file1", class: "gui-file", onchange: "document.getElementById('uploader1').value = this.value;"
+                  %input#uploader1.gui-input{:placeholder => @slider.image.url, :type => "text"}/
+                  %label.field-icon
+                    %i.fa.fa-upload
+
+
+
+    / Request Google Analytics
+    .panel.panel-system.panel-border.top.mb35
+      .panel-heading
+        %span.panel-title Настройки текста
+      .panel-body.bg-light.dark
+        .admin-form
+          %h5.text-muted.fw400.mb10
+            Google Analytics account
+            %small (how do I set this up?)
+          .section.mbn
+            %label.field.option.mt10
+              =f.check_box :show_text
+              %span.checkbox>
+              Показывать текст?
+              %em.small-text.text-muted - Текст отобразится либо слева, либо справа, зависит от настройки ниже
+          .section.mbn
+            %label.field.option.mt10
+              =f.check_box :right
+              %span.checkbox>
+              Текст показывать справа?
+              %em.small-text.text-muted - Если будет выбрано "нет", то текст будет слева
+    %hr.short.alt
+      .section.row.mbn
+        .col-sm-8
+        .col-sm-4
+          %p.text-right
+            =f.submit "Сохранить", class: "btn btn-primary"
+          / end section
+  / end: .tray-center

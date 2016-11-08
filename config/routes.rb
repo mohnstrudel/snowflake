@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :generals
       resources :postcategories
       resources :doctypes
+      resources :sliders
     end
 
     resources :documents

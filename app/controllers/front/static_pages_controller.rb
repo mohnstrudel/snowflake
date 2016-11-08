@@ -5,6 +5,7 @@ class Front::StaticPagesController < FrontController
   	@subcategories = Subcategory.all
   	@team = Master.all
   	@general_settings = General.first
+    @sliders = Slider.all
   end
 
   def team

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106185318) do
+ActiveRecord::Schema.define(version: 20161108182907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 20161106185318) do
     t.string   "vk"
     t.string   "fb"
     t.string   "instagram"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "email"
     t.string   "monday"
     t.string   "thuesday"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 20161106185318) do
     t.text     "lower_text"
     t.string   "first_image"
     t.string   "second_image"
+    t.text     "footer_text"
+    t.string   "instagram_hashtag"
   end
 
   create_table "instagram_helpers", force: :cascade do |t|
@@ -177,6 +179,17 @@ ActiveRecord::Schema.define(version: 20161106185318) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "sliders", force: :cascade do |t|
+    t.string   "image"
+    t.string   "first_row"
+    t.string   "second_row"
+    t.string   "third_row"
+    t.boolean  "right"
+    t.boolean  "show_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "static_pages", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -190,9 +203,10 @@ ActiveRecord::Schema.define(version: 20161106185318) do
     t.text     "description"
     t.string   "picture"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "name"
+    t.boolean  "show_on_landing"
     t.index ["category_id"], name: "index_subcategories_on_category_id", using: :btree
   end
 

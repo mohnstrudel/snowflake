@@ -47,7 +47,7 @@ class Admin::Settings::SubcategoriesController < AdminController
 	private
 
 	def subcategory_params
-		params.require(:subcategory).permit(:name, :description, :category_id, :picture)
+		params.require(:subcategory).permit(:name, :description, :category_id, :picture, :show_on_landing)
 	end
 
 	def find_subcategory

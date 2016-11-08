@@ -4,7 +4,7 @@ class Subcategory < ApplicationRecord
   has_many :services
   mount_uploader :picture, PictureUploader
 
-  # scope :cheapest, -> { joins(:services).where('service.power' => voltage) }
+  scope :on_landing, ->{where(show_on_landing: true)}
 
   def cheapest_service
   	return services.cheapest

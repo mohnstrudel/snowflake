@@ -49,7 +49,8 @@ class Admin::Settings::GeneralsController < AdminController
 	def general_params
 		params.require(:general).permit(:name, :picture, :description, :email, :phone, :vk, :fb, :instagram,
 			:monday, :thuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :address,
-			:upper_text, :lower_text, :first_image, :second_image)
+			:upper_text, :lower_text, :first_image, :second_image,
+			:footer_text, :instagram_hashtag)
 	end
 
 	def find_general

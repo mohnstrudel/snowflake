@@ -8,7 +8,7 @@
           НАШИ УСЛУГИ
         .bs-example
           #accordion.panel-group
-            -@subcategories.each_with_index do |subcat, index|
+            -@subcategories.on_landing.each_with_index do |subcat, index|
               .panel.panel_default
                 .panel-heading
                   %h4.panel-title

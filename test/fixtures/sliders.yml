@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyString
+  first_row: MyString
+  second_row: MyString
+  third_row: MyString
+  right: false
+  show_text: false
+
+two:
+  image: MyString
+  first_row: MyString
+  second_row: MyString
+  third_row: MyString
+  right: false
+  show_text: false
