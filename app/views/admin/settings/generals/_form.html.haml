@@ -33,6 +33,16 @@
                 %label.field-icon{:for => "account-phone"}
                   %i.fa.fa-phone
                 %i.arrow.double
+          .section.row.mb10
+            %label.field-label.col-md-3.text-center{:for => "privacy-policy"} Загрузить логотип
+            .col-md-9
+              .section
+                %label.field.prepend-icon.file
+                  %span.button Выбрать картинку
+                  =f.file_field :logo, id: "uploader-logotype", class: "gui-file", onchange: "document.getElementById('uploader-logo').value = this.value;"
+                  %input#uploader-logo.gui-input{:placeholder => @general.logo, :type => "text"}/
+                  %label.field-icon
+                    %i.fa.fa-upload
           %hr.short.alt/
           .section
             %label.field.prepend-icon{:for => "lastaddr"}
@@ -189,6 +199,7 @@
               =f.text_area :footer_text, id: '#google-insert', class: 'gui-textarea', placeholder: "Текст будет отображен в подвале сайта (внизу)"
               %label.field-icon{:for => "google-insert"}
                 %i.fa.fa-google
+
     %hr.short.alt
       .section.row.mbn
         .col-sm-8

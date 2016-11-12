@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108182907) do
+ActiveRecord::Schema.define(version: 20161112105430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20161108182907) do
     t.string   "second_image"
     t.text     "footer_text"
     t.string   "instagram_hashtag"
+    t.string   "logo"
   end
 
   create_table "instagram_helpers", force: :cascade do |t|
