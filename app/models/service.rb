@@ -7,7 +7,7 @@ class Service < ApplicationRecord
 
   scope :cheapest, -> { minimum(:price) }
 
-  has_many	:document_services
+  has_many	:document_services, dependent: :destroy
   has_many	:documents, through: :document_services
 
   accepts_nested_attributes_for :document_services

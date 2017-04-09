@@ -36,7 +36,7 @@ class Admin::Settings::DoctypesController < AdminController
 
 	def destroy
 		if @doctype.destroy
-			redirect_to admin_settings_doctypes_path, method: :get
+			redirect_to admin_settings_path, method: :get
 			flash[:success] = "Удалено успешно"
 		else
 			render 'index'

@@ -1,3 +1,3 @@
 class Doctype < ApplicationRecord
-	belongs_to :document
+	has_many :document, dependent: :destroy
 end

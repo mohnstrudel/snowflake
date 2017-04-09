@@ -1,5 +1,5 @@
 class Admin::MastersController < AdminController
-	before_action :find_master, only: [:edit, :update]
+	before_action :find_master, only: [:edit, :update, :destroy]
 
 	def index
 		@masters = Master.all
@@ -21,6 +21,15 @@ class Admin::MastersController < AdminController
 	end
 
 	def edit
+	end
+
+	def destroy
+		if @master.destroy
+			redirect_to admin_masters_path, method: :get
+			flash[:success] = "Успешно удалено"
+		else
+			render :index
+		end
 	end
 
 	def update

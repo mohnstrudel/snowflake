@@ -36,7 +36,7 @@ class Admin::Settings::PostcategoriesController < AdminController
 
 	def destroy
 		if @postcategory.destroy
-			redirect_to admin_settings_postcategories_path, method: :get
+			redirect_to admin_settings_path, method: :get
 			flash[:success] = "Удалено успешно"
 		else
 			render 'index'

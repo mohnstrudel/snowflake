@@ -5,8 +5,8 @@ class Document < ApplicationRecord
 
 	belongs_to :doctype
 
-	has_many	:document_services
-	has_many	:services, through: :document_services
+	has_many	:document_services, dependent: :destroy
+	has_many	:services, through: :document_services, dependent: :destroy
 
 	accepts_nested_attributes_for :document_services
 	

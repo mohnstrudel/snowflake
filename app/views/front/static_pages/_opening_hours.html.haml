@@ -2,38 +2,43 @@
   .container
     .row
       %ul.slides_times
-        %li{class: "#{daytime_class_helper(@general_settings.monday)}"}
-          .ds_day
-            ПН
-          .ds_whours
-            =@general_settings.monday
-        %li{class: "#{daytime_class_helper(@general_settings.thuesday)}"}
-          .ds_day
-            ВТ
-          .ds_whours
-            =@general_settings.thuesday
-        %li{class: "#{daytime_class_helper(@general_settings.wednesday)}"}
-          .ds_day
-            СР
-          .ds_whours
-            =@general_settings.wednesday
-        %li{class: "#{daytime_class_helper(@general_settings.thursday)}"}
-          .ds_day
-            ЧТ
-          .ds_whours
-            =@general_settings.thursday
-        %li{class: "#{daytime_class_helper(@general_settings.friday)}"}
-          .ds_day
-            ПТ
-          .ds_whours
-            =@general_settings.friday
-        %li{class: "#{daytime_class_helper(@general_settings.saturday)}"}
-          .ds_day
-            СБ
-          .ds_whours
-            =@general_settings.saturday
-        %li{class: "#{daytime_class_helper(@general_settings.sunday)}"}
-          .ds_day
-            ВС
-          .ds_whours
-            =@general_settings.sunday
+        -if @general_settings
+          %li{class: "#{daytime_class_helper(@general_settings.monday)}"}
+            .ds_day
+              ПН
+            .ds_whours
+              =@general_settings.monday
+          %li{class: "#{daytime_class_helper(@general_settings.thuesday)}"}
+            .ds_day
+              ВТ
+            .ds_whours
+              =@general_settings.thuesday
+          %li{class: "#{daytime_class_helper(@general_settings.wednesday)}"}
+            .ds_day
+              СР
+            .ds_whours
+              =@general_settings.wednesday
+          %li{class: "#{daytime_class_helper(@general_settings.thursday)}"}
+            .ds_day
+              ЧТ
+            .ds_whours
+              =@general_settings.thursday
+          %li{class: "#{daytime_class_helper(@general_settings.friday)}"}
+            .ds_day
+              ПТ
+            .ds_whours
+              =@general_settings.friday
+          %li{class: "#{daytime_class_helper(@general_settings.saturday)}"}
+            .ds_day
+              СБ
+            .ds_whours
+              =@general_settings.saturday
+          %li{class: "#{daytime_class_helper(@general_settings.sunday)}"}
+            .ds_day
+              ВС
+            .ds_whours
+              =@general_settings.sunday
+        -else
+          %li
+            .ds_whours
+              Записей нет!

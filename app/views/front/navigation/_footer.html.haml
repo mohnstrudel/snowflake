@@ -3,87 +3,90 @@
   .ds_wrapper.footer_section
     .container
       .row
-        / buy now
-        .col-sm-3.col-lg-3
-          %h4.widget-title
-            ="запишитесь сегодня".mb_chars.upcase
-          .textwidget
-            %p
-              =General.first.footer_text
-          .footer_button
-            =link_to 'Записаться к мастеру', new_request_path
-        / buy now end
-        / instagram
-        .col-sm-3.col-lg-3
-          %h4.widget-title
-            ="НАШ ТЭГ ##{General.first.instagram_hashtag} В ИНСТАГРАМЕ"
-          .photo_tiles
-            %ul
-              -instagram.take(6).each do |instagram|
+        -if General.first
+          .col-sm-3.col-lg-3
+            %h4.widget-title
+              ="запишитесь сегодня".mb_chars.upcase
+            .textwidget
+              %p
+                =General.first.footer_text
+            .footer_button
+              =link_to 'Записаться к мастеру', new_request_path
+          / buy now end
+          / instagram
+          .col-sm-3.col-lg-3
+            %h4.widget-title
+              ="НАШ ТЭГ ##{General.first.instagram_hashtag} В ИНСТАГРАМЕ"
+            .photo_tiles
+              %ul
+                -instagram.take(6).each do |instagram|
+                  %li
+                    =link_to instagram["display_src"] do
+                      =image_tag instagram["thumbnail_src"], title: "hello", style: 'width: 84px;'
+
+          / instagram end
+          / about us
+          .col-sm-3.col-lg-3
+            %h4.widget-title
+              О студии
+            .textwidget
+              %p
+                =General.first.upper_text
+                
+              %ul.contact
                 %li
-                  =link_to instagram["display_src"] do
-                    =image_tag instagram["thumbnail_src"], title: "hello", style: 'width: 84px;'
-        / instagram end
-        / about us
-        .col-sm-3.col-lg-3
-          %h4.widget-title
-            О студии
-          .textwidget
-            %p
-              =General.first.upper_text
-              
-            %ul.contact
-              %li
-                %i.fa.fa-phone>
-                =General.first.phone
-              %li
-                %i.fa.fa-envelope>
-                =General.first.email
-              %li
-                %i.fa.fa-home>
-                www.as-studio-lash.ru
-        / about us end
-        / opening time
-        .col-sm-3.col-lg-3
-          %h4.widget-title
-            РАБОЧИЕ ЧАСЫ
-          .textwidget
-            %ul.opening_times
-              %li
-                %span.day
-                  Понедельник
-                %span.time
-                  =General.first.monday
-              %li
-                %span.day
-                  Вторник
-                %span.time
-                  =General.first.thuesday
-              %li
-                %span.day
-                  Среда
-                %span.time
-                  =General.first.wednesday
-              %li
-                %span.day
-                  Четверг
-                %span.time
-                  =General.first.thursday
-              %li
-                %span.day
-                  Пятница
-                %span.time
-                  =General.first.friday
-              %li
-                %span.day
-                  Суббота
-                %span.time
-                  =General.first.saturday
-              %li
-                %span.day
-                  Воскресенье
-                %span.time
-                  =General.first.sunday
+                  %i.fa.fa-phone>
+                  =General.first.phone
+                %li
+                  %i.fa.fa-envelope>
+                  =General.first.email
+                %li
+                  %i.fa.fa-home>
+                  www.as-studio-lash.ru
+          / about us end
+          / opening time
+          .col-sm-3.col-lg-3
+            %h4.widget-title
+              РАБОЧИЕ ЧАСЫ
+            .textwidget
+              %ul.opening_times
+                %li
+                  %span.day
+                    Понедельник
+                  %span.time
+                    =General.first.monday
+                %li
+                  %span.day
+                    Вторник
+                  %span.time
+                    =General.first.thuesday
+                %li
+                  %span.day
+                    Среда
+                  %span.time
+                    =General.first.wednesday
+                %li
+                  %span.day
+                    Четверг
+                  %span.time
+                    =General.first.thursday
+                %li
+                  %span.day
+                    Пятница
+                  %span.time
+                    =General.first.friday
+                %li
+                  %span.day
+                    Суббота
+                  %span.time
+                    =General.first.saturday
+                %li
+                  %span.day
+                    Воскресенье
+                  %span.time
+                    =General.first.sunday
+        -else
+          Нет настроек
         / opening time end
 / footer end
 / copyright_footer
@@ -93,9 +96,12 @@
       .copyright_area
         %p
           ваша красота в салоне
-          =image_tag General.first.logo.xsmall.url
+          -if General.first
+            =image_tag General.first.logo.xsmall.url
+          -else
+            нет настроек
         #copyright
-          Студия Снежаны Черновой @2016 by
+          Студия Снежаны Черновой @2017 by
           =link_to "http://blog.handsomecake.com" do
             Handsomecake
 

@@ -5,30 +5,33 @@
         %span.toogle_span
           Контактная информация
         .notification_bar
-          .col-sm-9.col-lg-9.padd_l
-            .ds_top_notification
-              .br_notification_content
-                %i.fa.fa-mobile
-                .notification_text
-                  ="Позвоните нам для записи - #{General.first.phone}"
-                / 1103cf
-              .br_notification_content
-                %i.fa.fa-map-marker
-                .notification_text
-                  =General.first.address
-              .br_notification_content
-                %i.fa.fa-send
-                .notification_text
-                  =link_to "mailto:#{General.first.email}" do
-                    =General.first.email
-          .col-sm-3.col-lg-3.padd_r
-            .ds_social_notification
-              =link_to General.first.vk do
-                %i.fa.fa-vk
-              =link_to General.first.fb do
-                %i.fa.fa-facebook-official
-              =link_to General.first.instagram do
-                %i.fa.fa-instagram
+          -if General.first
+            .col-sm-9.col-lg-9.padd_l
+              .ds_top_notification
+                .br_notification_content
+                  %i.fa.fa-mobile
+                  .notification_text
+                    ="Позвоните нам для записи - #{General.first.phone}"
+                  / 1103cf
+                .br_notification_content
+                  %i.fa.fa-map-marker
+                  .notification_text
+                    =General.first.address
+                .br_notification_content
+                  %i.fa.fa-send
+                  .notification_text
+                    =link_to "mailto:#{General.first.email}" do
+                      =General.first.email
+            .col-sm-3.col-lg-3.padd_r
+              .ds_social_notification
+                =link_to General.first.vk do
+                  %i.fa.fa-vk
+                =link_to General.first.fb do
+                  %i.fa.fa-facebook-official
+                =link_to General.first.instagram do
+                  %i.fa.fa-instagram
+          -else
+            Нет настроек
   / header top section
   / header menu section start
   .ds_wrapper.wrapper_nav
@@ -40,9 +43,12 @@
             %i.fa.fa-list-ul
         / navbar toggle end
         .col-sm-2.col-lg-2.col-md-2.col-xs-5
-          .ds_logo_left
-            =link_to root_path do
-              =image_tag General.first.logo.xsmall.url
+          -if General.first
+            .ds_logo_left
+              =link_to root_path do
+                =image_tag General.first.logo.xsmall.url
+          -else
+            Нет настроек
         .col-sm-12.col-lg-8.col-md-8.col-xs-12.ds_navigation_menu
           / navbar_collapse
           .navbar_collapse

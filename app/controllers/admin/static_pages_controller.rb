@@ -1,5 +1,5 @@
 class Admin::StaticPagesController < AdminController
-	before_action :find_static_page, only: [:edit, :update]
+	before_action :find_static_page, only: [:edit, :update, :destroy]
 
 	def index
 		@static_pages = StaticPage.all
@@ -21,6 +21,15 @@ class Admin::StaticPagesController < AdminController
 	end
 
 	def edit
+	end
+
+	def destroy
+		if @static_page.destroy
+			redirect_to admin_static_pages_path, method: :get
+			flash[:success] = "Успешно удалено"
+		else
+			render :index
+		end
 	end
 
 	def update

@@ -35,21 +35,24 @@
                         =service.description
       / accordion end
       .col-sm-6.col-lg-6
-        %h2.block_title
-          О НАС
-        .right_side_mdl
-          %p
-            =@general_settings.upper_text
+        -if @genera_settings
+          %h2.block_title
+            О НАС
+          .right_side_mdl
+            %p
+              =@general_settings.upper_text
 
-          =image_tag @general_settings.first_image.first_picture_thumb.url, class: "img-responsive hair_cut"
-          =image_tag @general_settings.second_image.second_picture_thumb.url, class: "img-responsive saving_img"
-          %p
-            =@general_settings.lower_text
-            Напишите нам 
-            %span.info
-              =link_to "mailto:#{@general_settings.email}" do
-                =@general_settings.email
-            или звоните нам:
-            %strong
-              ="#{@general_settings.phone}."
-    / section_accordian end
+            =image_tag @general_settings.first_image.first_picture_thumb.url, class: "img-responsive hair_cut"
+            =image_tag @general_settings.second_image.second_picture_thumb.url, class: "img-responsive saving_img"
+            %p
+              =@general_settings.lower_text
+              Напишите нам 
+              %span.info
+                =link_to "mailto:#{@general_settings.email}" do
+                  =@general_settings.email
+              или звоните нам:
+              %strong
+                ="#{@general_settings.phone}."
+        -else
+          Нет настроек
+      / section_accordian end
