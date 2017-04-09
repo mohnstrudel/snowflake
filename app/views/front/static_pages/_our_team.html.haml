@@ -11,12 +11,15 @@
             .titleborder
       .divider
       / team_all
-      -if @team
+      -if @team.blank?
         -@team.each do |team_member|
           .col-sm-3.col-lg-3
             .team_first
               .team_image
-                =image_tag team_member.picture.thumb_186.url, class: "img-responsive circle"
+                -unless team_member.picture.url(:thumb_186).nil?
+                  =image_tag team_member.picture.thumb_186.url, class: "img-responsive circle"
+                -else
+                  Нет картинки
                 .title
                   %span
                     =team_member.name.mb_chars.upcase
