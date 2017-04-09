@@ -46,7 +46,10 @@
           -if General.first
             .ds_logo_left
               =link_to root_path do
-                =image_tag General.first.logo.xsmall.url
+                -unless General.first.logo.url(:xsmall).nil?
+                  =image_tag General.first.logo.xsmall.url
+                -else
+                  Нет изображения
           -else
             Нет настроек
         .col-sm-12.col-lg-8.col-md-8.col-xs-12.ds_navigation_menu
