@@ -11,31 +11,32 @@
             .titleborder
       .divider
       / team_all
-
-      -@team.each do |team_member|
-        .col-sm-3.col-lg-3
-          .team_first
-            .team_image
-              =image_tag team_member.picture.thumb_186.url, class: "img-responsive circle"
-              .title
-                %span
-                  =team_member.name.mb_chars.upcase
-              .ds_role
-                =team_member.category.name
-              .ds_description
-                %p
-                  =team_member.description
-                  
-                Email:
-                %a{:href => "mailto:james@barber.com"}
-                  james@barber.com
-              .ds_social
-                %a{:href => "#"}
-                  %i.fa.fa-twitter
-                %a{:href => "#"}
-                  %i.fa.fa-facebook
-                %a{:href => "#"}
-                  %i.fa.fa-instagram
-                %a{:href => "#"}
-                  %i.fa.fa-dribbble
-        / team_first
+      -if @team
+        -@team.each do |team_member|
+          .col-sm-3.col-lg-3
+            .team_first
+              .team_image
+                =image_tag team_member.picture.thumb_186.url, class: "img-responsive circle"
+                .title
+                  %span
+                    =team_member.name.mb_chars.upcase
+                .ds_role
+                  =team_member.category.name
+                .ds_description
+                  %p
+                    =team_member.description
+                    
+                  Email:
+                  %a{:href => "mailto:james@barber.com"}
+                    james@barber.com
+                .ds_social
+                  %a{:href => "#"}
+                    %i.fa.fa-twitter
+                  %a{:href => "#"}
+                    %i.fa.fa-facebook
+                  %a{:href => "#"}
+                    %i.fa.fa-instagram
+                  %a{:href => "#"}
+                    %i.fa.fa-dribbble
+      -else
+        Нет настроек команды
