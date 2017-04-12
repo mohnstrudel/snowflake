@@ -96,10 +96,7 @@
       .copyright_area
         %p
           ваша красота в салоне
-          -unless General.first.logo.url(:xsmall).nil?
-            =image_tag General.first.logo.xsmall.url
-          -else
-            нет изображения
+          =single_image_or_default(General.first, "logo", "xsmall")          
         #copyright
           Студия Снежаны Черновой @2017 by
           =link_to "http://blog.handsomecake.com" do

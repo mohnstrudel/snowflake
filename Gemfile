@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Use the motherrussian language, you dense motherfucker
 gem 'russian'
 
+# For user authentication
+gem 'devise'
+
 
 # Lets install some native icon support
 gem "font-awesome-rails"

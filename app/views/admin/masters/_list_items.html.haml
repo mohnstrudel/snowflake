@@ -47,7 +47,7 @@
                   %input{:name => "mobileos", :type => "checkbox", :value => "FR"}
                     %span.checkbox.mn
               %td
-                =image_tag master.picture.xs_thumb.url
+                =single_image_or_default(master, "picture", "xs_thumb")
               %td
                 =link_to master.name, edit_admin_master_path(master) 
               %td.text-right
