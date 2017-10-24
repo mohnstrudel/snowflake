@@ -12,6 +12,14 @@
       .panel-body.bg-light.dark
         .admin-form
           .section.row.mb25
+            %label.field-label.col-md-3.text-center{:for => "first_row"} Тайтл для слайдера
+            .col-md-9
+              %label.field.prepend-icon
+                =f.text_field :title, class: "gui-input", placeholder: "Тайтл для слайдера"
+                %label.field-icon
+                  %i.fa.fa-edit
+
+          .section.row.mb25
             %label.field-label.col-md-3.text-center{:for => "first_row"} Первая строка в тексте
             .col-md-9
               %label.field.prepend-icon

@@ -7,9 +7,12 @@
           ="популярные услуги".upcase
         %ul.gallery.clearfix
           -@services.each do |service|
-            %li
-              =link_to service.pictures.first.image.url, title: service.title, data: { gal: "prettyPhoto[gallery1]"} do
-                =image_tag service.pictures.first.image.thumb_124.url
+            -if service.pictures.any?
+              %li
+                =link_to service.pictures.first.image.url, title: service.title, data: { gal: "prettyPhoto[gallery1]"} do
+                  =image_tag service.pictures.first.image.thumb_124.url
+            -else
+              =placeholdit_image_tag '124x124', text: 'N/A'
           / left_side end
       / right_side start
       .col-sm-6.col-lg-6

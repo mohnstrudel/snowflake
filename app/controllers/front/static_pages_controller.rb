@@ -20,6 +20,7 @@ class Front::StaticPagesController < FrontController
   def services
   	@services = Service.all
   	@subcategories = Subcategory.all
+    @static_page = StaticPage.find_by(sp_category: 'Мастера')
   end
 
   def examples

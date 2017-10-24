@@ -5,5 +5,6 @@ class Admin::Settings::DashboardController < AdminController
   	@general = General.all
   	@postcategories = Postcategory.all
   	@doctypes = Doctype.all
+    @sliders = Slider.all
   end
 end

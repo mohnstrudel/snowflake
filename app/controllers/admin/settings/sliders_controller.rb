@@ -48,7 +48,7 @@ class Admin::Settings::SlidersController < AdminController
 	private
 
 	def slider_params
-		params.require(:slider).permit(:image, :first_row, :second_row, :third_row, :right, :show_text)
+		params.require(:slider).permit(:image, :first_row, :second_row, :third_row, :right, :show_text, :title)
 	end
 
 	def find_slider

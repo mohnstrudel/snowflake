@@ -8,6 +8,6 @@ class Subcategory < ApplicationRecord
   scope :on_landing, ->{where(show_on_landing: true)}
 
   def cheapest_service
-  	return services.cheapest
+  	return services.cheapest.try(:price)
   end
 end

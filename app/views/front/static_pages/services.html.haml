@@ -29,15 +29,17 @@
                     %li
                       =service.title
                 %p
-                  Prices, products and offers may vary per location. Call your local Barber's Salon for prices. We offer various haircuts and beard trimming of all sorts. But our specialty is the proper trimming of
-                  %strong
-                    your beard.
+                  =@static_page.try(:body)
               / tab content  end
               / tab gallery
               .col-sm-4.col-lg-4.col-md-4.tab_gallery
                 %ul.gallery.clearfix
                   -subcat.services.each do |service|
-                    %li
-                      =link_to service.pictures.first.image.thumb_280_240.url, title: service.title do
-                        =image_tag service.pictures.first.image.thumb_280_240.url, alt: service.title, class: "img-responsive"
+                    -if service.pictures.any?
+                      %li
+                        =link_to service.pictures.first.image.thumb_280_240.url, title: service.title do
+                          =image_tag service.pictures.first.image.thumb_280_240.url, alt: service.title, class: "img-responsive"
+                    -else
+                      %li
+                        =placeholdit_image_tag "280x240", text: "No image", background_color: '#83AF9B'
                   / tab gallery

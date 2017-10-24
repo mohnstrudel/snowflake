@@ -1,8 +1,8 @@
-=render partial: 'front/navigation/breadcrumbs', locals: { title: @important_page.title }
+=render partial: 'front/navigation/breadcrumbs', locals: { title: @important_page.try(:title) }
 
 / category slider section end
 .ds_wrapper.bg_white.portfolio_slider_sec
 	.container
 		.full_width.content
 			%p
-				=@important_page.body
+				=@important_page.try(:body)

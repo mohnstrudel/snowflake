@@ -1,11 +1,11 @@
-=render partial: 'front/navigation/breadcrumbs', locals: { title: @static_page.title }
+=render partial: 'front/navigation/breadcrumbs', locals: { title: @static_page.try(:title) }
 
 / category slider section end
 .ds_wrapper.bg_white.portfolio_slider_sec
 	.container
 		.full_width.content
 			%p
-				=@static_page.body
+				=@static_page.try(:body)
 			.ds_wrapper.circle_style_section
 				.divider
 				-@team.in_groups_of(4).each do |group|
