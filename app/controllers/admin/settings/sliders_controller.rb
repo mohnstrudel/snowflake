@@ -36,8 +36,8 @@ class Admin::Settings::SlidersController < AdminController
 
 	def destroy
 		if @slider.destroy
-			redirect_to admin_settings_slider_path, method: :get
 			flash[:success] = "Удалено успешно"
+			redirect_to admin_settings_path, method: :get
 		else
 			render 'index'
 			flash[:alert] = "Что-то пошло не так"
