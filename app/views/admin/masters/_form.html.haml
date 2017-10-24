@@ -40,6 +40,12 @@
                   %i.fa.fa-user
 
             .section.row
+              %label.field.prepend-icon
+                =f.text_field :email, class: "form-control pull-right", placeholder: 'Эл. почта сотрудника (опционально)'
+                %label.field-icon
+                  %i.fa.fa-envelope
+
+            .section.row
               %label.field.prepend-icon{:for => "product-price"}
                 =f.text_area :description, placeholder: "Свободное описание сотрудника", class: "gui-input", style: "height: 160px;"
                 %label.field-icon{:for => "product-price"}

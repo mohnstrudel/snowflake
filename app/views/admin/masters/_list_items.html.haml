@@ -49,7 +49,7 @@
               %td
                 =single_image_or_default(master, "picture", "xs_thumb")
               %td
-                =link_to master.name, edit_admin_master_path(master) 
+                =link_to master.name, edit_admin_master_path(master), method: :get
               %td.text-right
                 .btn-group.text-right
                   %button.btn.btn-success.br2.btn-xs.fs12.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
@@ -57,7 +57,7 @@
                     %span.caret.ml5
                   %ul.dropdown-menu{:role => "menu"}
                     %li
-                      =link_to 'Редактировать', edit_admin_master_path(master)
+                      =link_to 'Редактировать', edit_admin_master_path(master), method: :get
                     %li.divider
                     %li
                       =link_to 'Удалить', admin_master_path(master.id), method: :delete, data: {confirm: 'Действительно удалить?'}

@@ -49,6 +49,6 @@ class Admin::MastersController < AdminController
 	end
 
 	def master_params
-		params.require(:master).permit(:name, :description, :picture, :remove_picture, :category_id)
+		params.require(:master).permit(:name, :description, :picture, :remove_picture, :category_id, :email)
 	end
 end
